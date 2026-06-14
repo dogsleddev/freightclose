@@ -1,5 +1,6 @@
 import { PageHeader } from "@/components/ui";
 import { JePanel } from "@/components/close/JePanel";
+import { GuideLink } from "@/components/GuideLink";
 
 export const metadata = { title: "Journal Entries — FreightClose" };
 
@@ -10,6 +11,7 @@ export default function JePage() {
         title="Journal entries"
         lead="The booked accrued-freight-liability entry for the current period, with the prior period alongside and the month-over-month move. One clean entry per close: Dr Freight Expense by carrier / Cr Accrued Freight Liability, NetSuite-importable."
       />
+      <div><GuideLink anchor="step-6" label="Step 6 · Book the journal entry" /></div>
       <JePanel />
     </div>
   );

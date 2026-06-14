@@ -2,6 +2,7 @@ import Link from "next/link";
 import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, Badge, PageHeader } from "@/components/ui";
 import { AskFreightClose } from "@/components/AskFreightClose";
+import { GuideLink } from "@/components/GuideLink";
 import {
   fmtUsd,
   fmtUsd2,
@@ -19,6 +20,8 @@ export default function Dashboard() {
         title={`April 2026 freight accrual — ${fmtUsd(r.totalAccrual)}`}
         lead="FreightClose prices what actually shipped using rates calibrated from the carriers' own six months of invoices — not the stale printed cards — proves the method by reproducing those invoices to the cent, flags every assumption, and books one accrued-freight-liability entry that ties to shipment-level backup before invoices arrive."
       />
+
+      <div><GuideLink anchor="step-1" label="Step 1 · Review the accrual" /></div>
 
       {/* hero stats */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

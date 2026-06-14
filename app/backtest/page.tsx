@@ -1,6 +1,7 @@
 import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, PageHeader } from "@/components/ui";
 import { fmtUsd, fmtPct, fmtSignedPct, carrierName } from "@/app/lib/format";
+import { GuideLink } from "@/components/GuideLink";
 
 // Engine-only accuracy. The vs-Denise head-to-head is quarantined to the Denise
 // Comparison tab; this page proves the engine's OWN accuracy: reconstruction
@@ -21,6 +22,8 @@ export default function BackTest() {
         title="Accuracy & back-test"
         lead="Two honest views of the engine's own accuracy. Reconstruction proves the pricing mechanics reproduce six months of invoices to the cent (in-sample). The expanding-window forecast is the out-of-sample test — each month's rate index is calibrated only from prior months, then applied to that month's actual activity (no circularity). The head-to-head against Denise's trailing average lives on the vs. Denise tab."
       />
+
+      <div><GuideLink anchor="step-4" label="Step 4 · Validate accuracy" /></div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Card>

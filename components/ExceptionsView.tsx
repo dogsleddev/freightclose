@@ -11,6 +11,7 @@ import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, Badge, PageHeader } from "@/components/ui";
 import { severityStyle, carrierName } from "@/app/lib/format";
 import { DrillPane } from "@/components/DrillPane";
+import { GuideLink } from "@/components/GuideLink";
 import { listNotes, saveNote, deleteNote, noteKey } from "@/app/lib/closeStore";
 import type { ExceptionSeverity, ExceptionRecord } from "@/engine/types";
 
@@ -152,6 +153,8 @@ export function ExceptionsView() {
         title="Exceptions & controls"
         lead="Every fallback and assumption raises a flag — no silent defaults. An accountant who automates without controls is just automating errors faster. Click any shipment-level flag to open its full calc trace, and pin a review note to record its disposition."
       />
+
+      <div><GuideLink anchor="step-3" label="Step 3 · Review exceptions & controls" /></div>
 
       {/* ready-to-close control banner */}
       <div

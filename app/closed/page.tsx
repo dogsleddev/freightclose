@@ -11,6 +11,8 @@ import { useState } from "react";
 import { closedPeriods } from "@/app/lib/periods";
 import { Card, Badge, Stat, PageHeader } from "@/components/ui";
 import { fmtUsd, fmtUsd2, fmtSignedPct, carrierName } from "@/app/lib/format";
+import { ReconDiagram } from "@/components/guide/diagrams";
+import { GuideLink } from "@/components/GuideLink";
 
 // Materiality bands (PRD): green ≤5% / amber ≤10% / escalate >10%.
 function varAccent(pct: number): string {
@@ -38,6 +40,16 @@ export default function ClosedPeriods() {
         title="Closed periods — reconciliation & true-up"
         lead="Each closed month, side by side: what Freight Close would have accrued at the close (calibrated only from prior months — the honest leave-one-out estimate) vs the actual invoiced once the carriers billed, the variance against materiality thresholds, and the balanced journal entry that trues the accrual up to actual. This is the close loop a trailing average can't run: every dollar ties to a shipment and self-corrects against actuals."
       />
+      <div>
+        <GuideLink anchor="step-8" label="Step 8 · Reconcile when invoices arrive" />
+      </div>
+
+      <Card
+        title="How reconciliation works"
+        subtitle="The loop once the carriers' invoices land: compare actual vs estimate, score it against the materiality traffic-light, book a balanced true-up, and feed the variance into next month's calibration."
+      >
+        <ReconDiagram />
+      </Card>
 
       {/* period switcher */}
       <div className="flex flex-wrap gap-1.5">

@@ -13,6 +13,7 @@ import { accrualRun } from "@/app/lib/accrual";
 import { Card, Badge, Stat, PageHeader } from "@/components/ui";
 import { fmtUsd, fmtUsd2 } from "@/app/lib/format";
 import { downloadText } from "@/app/lib/closeClient";
+import { GuideLink } from "@/components/GuideLink";
 import {
   listCloses,
   listApprovals,
@@ -168,6 +169,8 @@ export default function ApprovalPage() {
         title="Approval & period lock"
         lead="The controlled close-out: every automated control gate must pass, the approver attests the manual reviews, and on sign-off the period locks and its run is archived — recomputable to the cent from the stored inputs, with a NetSuite JE, shipment-level backup, and a portable HTML snapshot. Approvals and re-opens are logged with a timestamp; nothing is lost."
       />
+
+      <div><GuideLink anchor="step-7" label="Step 7 · Approve & lock the period" /></div>
 
       {writeErr && (
         <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
