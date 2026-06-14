@@ -60,7 +60,7 @@ export function AppShell({ run, children }: { run: ShellRun; children: React.Rea
             </svg>
           </button>
           <span className="font-serif text-xl font-semibold tracking-tight text-parchment">
-            Freight<span className="text-trail">Close</span>
+            Freight <span className="text-trail">Close</span>
           </span>
           <span className="hidden text-sm text-parchment/55 sm:inline">Ridgeline Foods · {run.period}</span>
         </div>

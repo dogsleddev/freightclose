@@ -54,7 +54,7 @@ function renderOverview() {
       stat('Tie-outs', R.tieOuts.filter(t => t.passed).length + '/' + R.tieOuts.length + ' pass', R.allTieOutsPassed ? 'everything ties' : 'CHECK FAILURES') +
       stat('Inputs', R.inputs.uniqueShipments + ' shp', R.inputs.invoiceLines + ' invoice lines · through ' + R.inputs.invoicesThrough) +
     '</div>' +
-    '<p class="note">Every figure here is read from the deterministic engine run — see <b>Method &amp; Tie-outs</b> for how it is built, and the <b>Denise Comparison</b> tab for the head-to-head against the prior manual estimate.</p>'
+    '<p class="note">Every figure here is read from the deterministic engine run — see <b>Method &amp; Tie-outs</b> for how it is built, and the <b>vs. Denise</b> tab for the head-to-head against the prior manual estimate.</p>'
   );
 }
 
@@ -126,7 +126,7 @@ function renderBacktest() {
     'spend is stabilized, so per-month MAPE is inherently noisy and a trailing average is hard to beat — we don\'t claim a MAPE win. ' +
     'The wins that matter: reconstruction ties to ±' + fmtUsd(R.backtest.reconstruction.byCarrierMonthMaxErrorDollars) +
     '; the engine is near-unbiased (' + fmtPct(o.engineBias) + ') — bias is what misstates the P&L every period. ' +
-    'The head-to-head against the prior manual estimate is on the <b>Denise Comparison</b> tab.</div>' +
+    'The head-to-head against the prior manual estimate is on the <b>vs. Denise</b> tab.</div>' +
     '<p class="note">' + esc(R.backtest.modeNote) + '</p>' +
     '<h3>By carrier (expanding-window forecast)</h3>' +
     '<table><thead><tr><th>Carrier</th><th class="r">Engine MAPE</th><th class="r">Engine bias</th><th class="r">Carrier-months</th></tr></thead><tbody>' +
@@ -378,13 +378,13 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FreightClose — April 2026 Accrual (portable)</title>
+<title>2604 Freight Accrual — April 2026</title>
 <style>${CSS}</style>
 </head>
 <body>
 <header>
   <div class="brand">
-    <h1><span class="dot"></span>FreightClose</h1>
+    <h1><span class="dot"></span>Freight Close</h1>
     <span class="tag">Ridgeline Foods · Finance Engineer Cup R1</span>
   </div>
   <div class="sub">April 2026 outbound-freight accrual estimated from current-month shipment activity, calibrated against six months of invoices, before carrier bills arrive. Portable build — open offline, no server. Generated ${run.generatedAtNote || ''}.</div>
@@ -393,8 +393,8 @@ const html = `<!doctype html>
   <button class="tab active" data-tab="overview">Overview</button>
   <button class="tab" data-tab="je">Journal Entry</button>
   <button class="tab" data-tab="carriers">Carriers</button>
-  <button class="tab" data-tab="backtest">Accuracy / Back-test</button>
-  <button class="tab" data-tab="denise">Denise Comparison</button>
+  <button class="tab" data-tab="backtest">Accuracy</button>
+  <button class="tab" data-tab="denise">vs. Denise</button>
   <button class="tab" data-tab="shipments">Shipment Backup</button>
   <button class="tab" data-tab="exceptions">Exceptions</button>
   <button class="tab" data-tab="method">Method &amp; Tie-outs</button>
