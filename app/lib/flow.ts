@@ -31,12 +31,12 @@ export interface FlowModel {
 
 export const STEPS_USE: FlowModel = {
   nodes: [
-    { id: "import", kind: "input", col: 0, row: 0, label: "1 · Data Import", detail: "Load a sample period or upload a CSV — priced in-browser" },
-    { id: "cfo", kind: "process", col: 1, row: 0, label: "2 · CFO Overview", detail: "Accrual by carrier + confidence band" },
+    { id: "import", kind: "input", col: 0, row: 0, label: "1 · Run a close", detail: "Load a sample period or upload a CSV — priced in-browser" },
+    { id: "cfo", kind: "process", col: 1, row: 0, label: "2 · Overview", detail: "Accrual by carrier + confidence band" },
     { id: "exceptions", kind: "control", col: 2, row: 0, label: "3 · Exceptions", detail: "Every flag + how it was handled" },
     { id: "backup", kind: "process", col: 2, row: 1, label: "4 · Shipment Backup", detail: "Drill any dollar to its calc trace" },
     { id: "rates", kind: "process", col: 1, row: 1, label: "5 · Rates & Method", detail: "Calibrated cards + the math" },
-    { id: "accuracy", kind: "process", col: 0, row: 1, label: "6 · Accuracy", detail: "Honest back-test; head-to-head on Denise Comparison" },
+    { id: "accuracy", kind: "process", col: 0, row: 1, label: "6 · Accuracy", detail: "Honest back-test; head-to-head on vs. Denise" },
     { id: "closed", kind: "process", col: 0, row: 2, label: "7 · Closed Periods", detail: "Estimate vs actual + true-up JE" },
     { id: "may", kind: "process", col: 1, row: 2, label: "8 · May Scenario", detail: "Adaptability: the fuel-spike what-if" },
     { id: "je", kind: "output", col: 2, row: 2, label: "9 · Journal Entries", detail: "NetSuite-ready entry" },

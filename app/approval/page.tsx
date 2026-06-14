@@ -1,10 +1,12 @@
 "use client";
 
-// Approval — the CFO sign-off that closes a period. Auto-evaluated control gates
+// Approval — the sign-off that closes a period. Auto-evaluated control gates
 // (tie-outs, JE balance, exception register, reconstruction) must all pass; the
-// CFO then attests the manual reviews and signs. On approval the period LOCKS
-// and its run is archived (recomputable from the stored inputs) with downloadable
-// JE / shipment backup / portable HTML. Client-side (IndexedDB) — no server.
+// approver then attests the manual reviews and signs. On approval the period
+// LOCKS and its run is archived (recomputable from the stored inputs) with
+// downloadable JE / shipment backup / portable HTML. Every approve and reopen is
+// recorded, timestamped, in an append-only audit log — re-opening loses nothing.
+// Client-side (IndexedDB) — no server.
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { accrualRun } from "@/app/lib/accrual";
@@ -14,10 +16,12 @@ import { downloadText } from "@/app/lib/closeClient";
 import {
   listCloses,
   listApprovals,
-  saveApproval,
-  deleteApproval,
+  listApprovalEvents,
+  saveApprovalWithEvent,
+  reopenWithEvent,
   type StoredClose,
   type PeriodApproval,
+  type ApprovalEvent,
 } from "@/app/lib/closeStore";
 import { journalEntryToCsv } from "@/engine/je";
 import { shipmentBackupCsv } from "@/engine/close";
@@ -66,13 +70,16 @@ export default function ApprovalPage() {
   const aprilKey = accrualRun.periodKey ?? "2026-04";
   const [closes, setCloses] = useState<StoredClose[]>([]);
   const [approvals, setApprovals] = useState<PeriodApproval[]>([]);
+  const [events, setEvents] = useState<ApprovalEvent[]>([]);
   const [sel, setSel] = useState(aprilKey);
   const [cfo, setCfo] = useState("");
   const [att, setAtt] = useState<Record<string, boolean>>({});
+  const [writeErr, setWriteErr] = useState<string | null>(null);
 
   const refresh = useCallback(() => {
     listCloses().then(setCloses).catch(() => setCloses([]));
     listApprovals().then(setApprovals).catch(() => setApprovals([]));
+    listApprovalEvents().then(setEvents).catch(() => setEvents([]));
   }, []);
   useEffect(refresh, [refresh]);
 
@@ -87,6 +94,7 @@ export default function ApprovalPage() {
   const run = current.run;
   const slug = run.period.toLowerCase().replace(/\s+/g, "-");
   const approval = approvals.find((a) => a.periodKey === current.periodKey);
+  const periodEvents = events.filter((e) => e.periodKey === current.periodKey).sort((a, b) => b.at - a.at);
   const gates = autoGates(run);
   const gatesPass = gates.every((g) => g.ok);
   const attestOk = ATTESTATIONS.every((a) => att[a.key]);
@@ -99,12 +107,18 @@ export default function ApprovalPage() {
     setAtt({});
   }, [sel]);
 
+  // Collision-proof event id: millisecond timestamp + a random suffix, so two
+  // events in the same period never share a key (add() would otherwise throw).
+  const eventId = (now: number) => `${current.periodKey}:${now}:${Math.random().toString(36).slice(2, 10)}`;
+
   const approve = () => {
+    const now = Date.now();
+    const who = cfo.trim();
     const record: PeriodApproval = {
       periodKey: current.periodKey,
       period: run.period,
-      approvedBy: cfo.trim(),
-      approvedAt: Date.now(),
+      approvedBy: who,
+      approvedAt: now,
       totalAccrual: run.totalAccrual,
       checklist: [
         ...gates.map((g) => ({ label: g.label, ok: g.ok, auto: true })),
@@ -112,21 +126,54 @@ export default function ApprovalPage() {
       ],
       runSnapshot: run,
     };
-    saveApproval(record).then(refresh);
+    const ev: ApprovalEvent = {
+      id: eventId(now),
+      periodKey: current.periodKey,
+      period: run.period,
+      action: "approved",
+      actor: who,
+      at: now,
+      totalAccrual: run.totalAccrual,
+    };
+    setWriteErr(null);
+    saveApprovalWithEvent(record, ev)
+      .then(refresh)
+      .catch((e) => setWriteErr(`Could not save the approval — nothing was locked. ${String(e)}`));
   };
 
   const unlock = () => {
-    if (confirm(`Re-open ${run.period}? This removes the lock and the approval record.`)) {
-      deleteApproval(current.periodKey).then(refresh);
-    }
+    const who = window.prompt(
+      `Re-open ${run.period}? The lock is removed, but the approval stays in the audit log (nothing is lost).\n\nEnter your name/initials for the audit trail:`
+    );
+    if (who === null) return; // cancelled
+    const now = Date.now();
+    const ev: ApprovalEvent = {
+      id: eventId(now),
+      periodKey: current.periodKey,
+      period: run.period,
+      action: "reopened",
+      actor: who.trim() || "—",
+      at: now,
+      totalAccrual: run.totalAccrual,
+    };
+    setWriteErr(null);
+    reopenWithEvent(current.periodKey, ev)
+      .then(refresh)
+      .catch((e) => setWriteErr(`Could not re-open the period. ${String(e)}`));
   };
 
   return (
     <div className="space-y-6">
       <PageHeader
         title="Approval & period lock"
-        lead="The controlled close-out: every automated control gate must pass, the CFO attests the manual reviews, and on sign-off the period locks and its run is archived — recomputable to the cent from the stored inputs, with a NetSuite JE, shipment-level backup, and a portable HTML snapshot."
+        lead="The controlled close-out: every automated control gate must pass, the approver attests the manual reviews, and on sign-off the period locks and its run is archived — recomputable to the cent from the stored inputs, with a NetSuite JE, shipment-level backup, and a portable HTML snapshot. Approvals and re-opens are logged with a timestamp; nothing is lost."
       />
+
+      {writeErr && (
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          {writeErr}
+        </div>
+      )}
 
       {/* period selector */}
       <div className="flex flex-wrap items-center gap-1.5">
@@ -141,7 +188,7 @@ export default function ApprovalPage() {
               }`}
             >
               {p.run.period}
-              {locked && <span className="ml-1.5">🔒</span>}
+              {locked && <span className="ml-1.5" role="img" aria-label="locked">🔒</span>}
             </button>
           );
         })}
@@ -178,14 +225,14 @@ export default function ApprovalPage() {
         >
           <p className="text-sm leading-relaxed text-slate-600">
             The period is closed. Its run is archived and reproduces to the cent from the stored inputs (see the
-            re-run audit on Monthly Close). The full archive is available below.
+            re-run audit on Run a close). The full archive is available below.
           </p>
           <ul className="mt-3 space-y-1 text-sm text-slate-700">
             {approval.checklist.map((c, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="text-emerald-600">✓</span>
                 <span>
-                  {c.label} <span className="text-xs text-slate-400">{c.auto ? "(automated control)" : "(CFO attestation)"}</span>
+                  {c.label} <span className="text-xs text-slate-400">{c.auto ? "(automated control)" : "(attestation)"}</span>
                 </span>
               </li>
             ))}
@@ -199,7 +246,7 @@ export default function ApprovalPage() {
         </Card>
       ) : (
         <>
-          <Card title="CFO sign-off checklist" subtitle="Automated control gates — all must pass before the period can be approved.">
+          <Card title="Sign-off checklist" subtitle="Automated control gates — all must pass before the period can be approved.">
             <ul className="space-y-2">
               {gates.map((g, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm">
@@ -215,7 +262,7 @@ export default function ApprovalPage() {
             </ul>
           </Card>
 
-          <Card title="CFO attestation & sign-off" subtitle="Confirm the manual reviews and sign to lock the period.">
+          <Card title="Attestation & sign-off" subtitle="Confirm the manual reviews and sign to lock the period.">
             <ul className="space-y-2">
               {ATTESTATIONS.map((a) => (
                 <li key={a.key} className="flex items-start gap-2 text-sm">
@@ -232,7 +279,7 @@ export default function ApprovalPage() {
             </ul>
             <div className="mt-4 flex flex-wrap items-end gap-4 border-t border-slate-100 pt-4">
               <label className="block text-sm">
-                <span className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Approver (CFO)</span>
+                <span className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">Approver</span>
                 <input
                   type="text"
                   value={cfo}
@@ -252,6 +299,39 @@ export default function ApprovalPage() {
             </div>
           </Card>
         </>
+      )}
+
+      {periodEvents.length > 0 && (
+        <Card
+          title="Approval audit trail"
+          subtitle="Every approval and re-open for this period — append-only and timestamped. Re-opening removes the lock but never the history."
+        >
+          <ul className="space-y-2 text-sm">
+            {periodEvents.map((ev) => (
+              <li key={ev.id} className="flex items-start gap-3">
+                <Badge
+                  className={
+                    ev.action === "approved"
+                      ? "bg-emerald-100 text-emerald-800 ring-emerald-200"
+                      : "bg-amber-100 text-amber-800 ring-amber-200"
+                  }
+                >
+                  {ev.action === "approved" ? "approved" : "re-opened"}
+                </Badge>
+                <span className="text-slate-700">
+                  {ev.action === "approved" ? "Signed off by " : "Re-opened by "}
+                  <span className="font-medium">{ev.actor || "—"}</span>
+                  {ev.action === "approved" && (
+                    <span className="text-slate-500"> · accrual {fmtUsd2(ev.totalAccrual)}</span>
+                  )}
+                </span>
+                <span className="ml-auto whitespace-nowrap text-xs text-slate-400">
+                  {new Date(ev.at).toLocaleString()}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Card>
       )}
     </div>
   );

@@ -9,6 +9,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { accrualRun } from "@/app/lib/accrual";
 import baseInputs from "@/app/_generated/baseInputs.json";
+import sampleManifestData from "@/app/_generated/sampleManifest.json";
 import { Card, Badge, Stat } from "@/components/ui";
 import { fmtUsd, fmtUsd2, carrierName, carrierAccent, severityStyle } from "@/app/lib/format";
 import {
@@ -18,6 +19,8 @@ import {
   validateInvoicesCsv,
   inferPeriod,
   downloadText,
+  SHIPMENT_COLUMNS,
+  INVOICE_COLUMNS,
   type CsvValidation,
 } from "@/app/lib/closeClient";
 import {
@@ -37,6 +40,17 @@ import type { RateConfigVersion } from "@/engine/configSet";
 
 const BASE_INVOICES = (baseInputs as { invoices: InvoiceLine[] }).invoices;
 const BASE_DENISE = (baseInputs as { denise: DeniseBaseline[] }).denise;
+
+interface SampleEntry {
+  id: string;
+  label: string;
+  period: string;
+  status: "closed" | "open" | "simulated";
+  source: "real" | "synthetic";
+  badge: string;
+  files: { shipments: string; invoices?: string; denise?: string };
+}
+const SAMPLES = sampleManifestData as unknown as SampleEntry[];
 
 function PeriodBadge({ run }: { run: AccrualRun }) {
   return run.allTieOutsPassed ? (
@@ -59,6 +73,8 @@ export function ClosePanel() {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<{ run: AccrualRun; qtdNote: string; mergeNote: string } | null>(null);
   const [verify, setVerify] = useState<Record<string, "identical" | "diverged">>({});
+  const [sampleId, setSampleId] = useState(SAMPLES.find((s) => s.id === "2604")?.id ?? SAMPLES[0]?.id ?? "");
+  const [busy, setBusy] = useState(false);
 
   const refresh = useCallback(() => {
     listCloses().then(setCloses).catch(() => setCloses([]));
@@ -114,6 +130,41 @@ export function ClosePanel() {
     const pick = pasted !== undefined ? { name: "(pasted)", text: pasted } : f ? await readFile(f) : null;
     setInvFile(pick);
     setInvVal(pick ? validateInvoicesCsv(pick.text) : null);
+  };
+
+  // Quick-start: load a bundled sample period and price it as a preview (not
+  // saved), mirroring the engine call the build verifies (configVersions/priorCloses
+  // empty → reproduces the published sample figures).
+  const loadSample = async () => {
+    const s = SAMPLES.find((x) => x.id === sampleId);
+    if (!s) return;
+    setBusy(true);
+    setError(null);
+    setResult(null);
+    try {
+      const text = await fetch(s.files.shipments).then((r) => {
+        if (!r.ok) throw new Error(`Could not load sample (${r.status}).`);
+        return r.text();
+      });
+      const { run: built, qtdNote } = buildClose({
+        periodKey: s.period,
+        shipmentsCsv: text,
+        invoicesCsv: null,
+        baseInvoices: BASE_INVOICES,
+        denise: BASE_DENISE,
+        configVersions: [],
+        priorCloses: [],
+      });
+      setResult({
+        run: built,
+        qtdNote,
+        mergeNote: `Sample: ${s.label} (${s.source}) — priced as a preview, not saved`,
+      });
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setBusy(false);
+    }
   };
 
   const canRun = !!shipFile && !!shipVal?.ok && (!invFile || !!invVal?.ok) && !!monthMetaFromKey(periodKey);
@@ -241,8 +292,36 @@ export function ClosePanel() {
       {/* upload + run */}
       <Card
         title="Run the next month"
-        subtitle="Shipments CSV is required (the month being accrued). Add the invoice CSV for newly invoiced months when it arrives — the engine recalibrates and the window rolls forward. Same schemas as the challenge files; nothing is invented, every fallback is flagged."
+        subtitle="Load a bundled sample to see it priced instantly, or upload your own. Shipments CSV is required (the month being accrued); add the invoice CSV for newly invoiced months when it arrives — the engine recalibrates and the window rolls forward. Same schemas as the challenge files; nothing is invented, every fallback is flagged."
       >
+        <div className="mb-5 flex flex-wrap items-end gap-3 border-b border-slate-100 pb-5">
+          <label className="block text-sm">
+            <span className="mb-1 block text-xs font-medium uppercase tracking-wide text-slate-500">
+              Quick start — load a sample period
+            </span>
+            <select
+              value={sampleId}
+              onChange={(e) => setSampleId(e.target.value)}
+              className="rounded-md border border-slate-300 px-2 py-1.5 text-sm"
+            >
+              {SAMPLES.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.label}
+                  {s.source === "synthetic" ? " — simulated" : s.status === "open" ? " — open (hero)" : " — closed"}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            disabled={busy}
+            onClick={loadSample}
+            className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+          >
+            {busy ? "Pricing…" : "Load & price"}
+          </button>
+          <span className="text-xs text-slate-500">…or upload your own files below.</span>
+        </div>
+
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           <UploadBlock
             label="1 · Shipments (required)"
@@ -298,6 +377,24 @@ export function ClosePanel() {
 
       {/* result */}
       {result && <CloseResult run={result.run} qtdNote={result.qtdNote} mergeNote={result.mergeNote} />}
+
+      {/* import templates */}
+      <Card title="Import templates" subtitle="Download a headers-only CSV in the exact schema the engine expects.">
+        <div className="flex flex-wrap gap-2">
+          <button
+            className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+            onClick={() => downloadText("freightclose-template-shipments.csv", SHIPMENT_COLUMNS.join(",") + "\n")}
+          >
+            Shipments template
+          </button>
+          <button
+            className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+            onClick={() => downloadText("freightclose-template-invoices.csv", INVOICE_COLUMNS.join(",") + "\n")}
+          >
+            Invoices template
+          </button>
+        </div>
+      </Card>
     </div>
   );
 }

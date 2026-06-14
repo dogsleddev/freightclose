@@ -115,17 +115,13 @@ export default function MayScenarioPage() {
         </Card>
       </div>
 
-      <Card title="Why this matters" subtitle="Adaptability is the axis a trailing average structurally cannot compete on.">
+      <Card title="The takeaway" subtitle="Adaptability is the one axis a trailing average structurally can't compete on.">
         <p className="text-sm leading-relaxed text-slate-600">
-          The carrier announces Peak fuel surcharge rising <b>{fmtPct(m.calibratedPeakFuelPct)} → {fmtPct(m.scenarioPeakFuelPct)}</b>{" "}
-          effective May — before a single invoice reflects it. A trailing average (and any history-only calibration)
-          is blind to the announcement and would book the no-change estimate, under-accruing the spike scenario by{" "}
-          <b>{fmtUsd(m.blindUnderAccrual)}</b>. Freight Close applies the announced rate as a <b>scenario rate-source
-          override</b> — keeping base rates calibrated and moving only the fuel surcharge — so the spike-scenario
-          accrual lands within <b>{fmtPct(Math.abs(m.variants[1].variancePct))}</b> of actual, and it raises a{" "}
-          <b>control flag</b> so the override is never silent. The dollar impact the engine books
-          ({fmtUsd(m.engineSpikeUplift)}) tracks the actual rate change ({fmtUsd(m.actualSpikeDelta)}); the small
-          gap is because the engine prices its own estimated Peak base, not the realized one.
+          Peak announces its fuel surcharge rising <b>{fmtPct(m.calibratedPeakFuelPct)} → {fmtPct(m.scenarioPeakFuelPct)}</b>{" "}
+          for May — before a single invoice reflects it. A trailing average is blind to the announcement and would
+          under-accrue by <b>{fmtUsd(m.blindUnderAccrual)}</b>. Freight Close applies the announced rate as a{" "}
+          <b>scenario override</b> (only fuel moves; base stays calibrated), books it, and raises a <b>control flag</b>{" "}
+          so it&apos;s never silent — landing within <b>{fmtPct(Math.abs(m.variants[1].variancePct))}</b> of actual.
         </p>
       </Card>
 

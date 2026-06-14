@@ -1,7 +1,7 @@
 "use client";
 
-// Shared CSV pick/paste/validate block — used by both Monthly Close (/close) and
-// Data Import (/import). Extracted so the upload UX lives in one place.
+// Shared CSV pick/paste/validate block — used by Run a close (/close).
+// Extracted so the upload UX lives in one place.
 
 import { useState } from "react";
 import type { CsvValidation } from "@/app/lib/closeClient";

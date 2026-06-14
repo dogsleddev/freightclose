@@ -6,8 +6,103 @@
 import { accrualRun } from "@/app/lib/accrual";
 import { closedPeriods } from "@/app/lib/periods";
 import { Card, Stat, PageHeader, Badge } from "@/components/ui";
-import { fmtUsd, fmtUsd2, fmtPct, fmtSignedPct, carrierName } from "@/app/lib/format";
+import { fmtUsd, fmtPct, fmtSignedPct, carrierName } from "@/app/lib/format";
 import { AskFreightClose } from "@/components/AskFreightClose";
+
+// Grouped-bar chart of the closed-months three-way (engine vs Denise vs actual).
+// Pure SVG on a light inset panel so it reads in both light and dark themes,
+// matching the map/flow diagrams. Renders the same closedPeriods the table does.
+const SHORT = (lbl: string) => {
+  const [m, y] = lbl.split(" ");
+  return `${m.slice(0, 3)} '${(y ?? "").slice(2)}`;
+};
+
+function ThreeWayChart() {
+  const data = closedPeriods.map((p) => ({
+    label: SHORT(p.label),
+    engine: p.engineTotal,
+    denise: p.denise.totalDenise,
+    actual: p.actualTotal,
+    coldStart: p.isColdStart,
+  }));
+  const hasColdStart = data.some((d) => d.coldStart);
+  const max = Math.max(...data.flatMap((d) => [d.engine, d.denise, d.actual])) * 1.05 || 1;
+  const W = 760, H = 280, padL = 52, padB = 40, padT = 10, padR = 10;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+  const groupW = plotW / data.length;
+  const barW = (groupW * 0.66) / 3;
+  const y = (v: number) => padT + plotH - (v / max) * plotH;
+  const series = [
+    { key: "engine" as const, label: "Engine estimate", color: "#2F6FB0" },
+    { key: "denise" as const, label: "Denise", color: "#9A958C" },
+    { key: "actual" as const, label: "Actual invoiced", color: "#2E8B6B" },
+  ];
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((f) => Math.round(max * f));
+
+  return (
+    <div className="overflow-x-auto">
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full min-w-[640px]"
+        role="img"
+        aria-label="Closed months engine vs Denise vs actual, grouped bars"
+      >
+        <rect x="0" y="0" width={W} height={H} rx="8" fill="#FBFAF6" />
+        {ticks.map((t, i) => {
+          const yy = y(t);
+          return (
+            <g key={i}>
+              <line x1={padL} y1={yy} x2={W - padR} y2={yy} stroke="#E7E3D8" strokeWidth="1" />
+              <text x={padL - 6} y={yy + 3} textAnchor="end" fontSize="10" fill="#8A887F">
+                ${Math.round(t / 1000)}k
+              </text>
+            </g>
+          );
+        })}
+        {data.map((d, gi) => {
+          const gx = padL + gi * groupW + (groupW - barW * 3) / 2;
+          return (
+            <g key={gi}>
+              {series.map((s, si) => {
+                const v = d[s.key];
+                const yy = y(v);
+                return (
+                  <rect
+                    key={s.key}
+                    x={gx + si * barW}
+                    y={yy}
+                    width={barW - 2}
+                    height={padT + plotH - yy}
+                    fill={s.color}
+                    fillOpacity={d.coldStart ? 0.4 : 1}
+                    rx="1.5"
+                  />
+                );
+              })}
+              <text x={padL + gi * groupW + groupW / 2} y={H - padB + 16} textAnchor="middle" fontSize="10" fill="#5B5A54">
+                {d.label}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <div className="mt-2 flex flex-wrap gap-4 text-xs text-slate-600">
+        {series.map((s) => (
+          <span key={s.key} className="inline-flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: s.color }} />
+            {s.label}
+          </span>
+        ))}
+      </div>
+      {hasColdStart && (
+        <p className="mt-1.5 text-xs text-slate-400">
+          October is cold-start (printed-card priced, no prior history) — dimmed, and excluded from the head-to-head below.
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function DeniseComparison() {
   const r = accrualRun;
@@ -95,7 +190,8 @@ export default function DeniseComparison() {
         title="Closed months — engine vs Denise vs actual"
         subtitle="The full three-way for each reconstructed historical month. Error % is signed vs actual invoiced; 'Closer' is whoever was nearer that month."
       >
-        <div className="overflow-x-auto">
+        <ThreeWayChart />
+        <div className="mt-5 overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">

@@ -4,7 +4,7 @@
 // Backup and Exceptions: select a shipment anywhere and its full calc trace +
 // flags + method summary slide in from the right. Renders emitted JSON only.
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { accrualRun } from "@/app/lib/accrual";
 import { fmtUsd, fmtUsd2, carrierName, carrierAccent, severityStyle } from "@/app/lib/format";
 import { Badge } from "@/components/ui";
@@ -23,9 +23,11 @@ function methodSummary(e: ShipmentEstimate): string {
 
 export function DrillPane({ shipmentId, onClose }: { shipmentId: string | null; onClose: () => void }) {
   const e = shipmentId ? accrualRun.shipmentEstimates.find((s) => s.shipmentId === shipmentId) ?? null : null;
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!e) return;
+    closeRef.current?.focus(); // move focus into the dialog on open
     const onKey = (ev: KeyboardEvent) => ev.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -39,6 +41,9 @@ export function DrillPane({ shipmentId, onClose }: { shipmentId: string | null; 
         className={`fixed inset-0 z-40 bg-ink/30 transition-opacity duration-200 ${e ? "opacity-100" : "pointer-events-none opacity-0"}`}
       />
       <aside
+        role="dialog"
+        aria-modal={!!e}
+        aria-label={e ? `Shipment ${e.shipmentId} detail` : undefined}
         className={`fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col overflow-y-auto bg-white shadow-2xl transition-transform duration-200 ${
           e ? "translate-x-0" : "translate-x-full"
         }`}
@@ -56,7 +61,7 @@ export function DrillPane({ shipmentId, onClose }: { shipmentId: string | null; 
               </div>
               <div className="flex flex-col items-end gap-1.5">
                 <Badge className={carrierAccent[e.carrier]}>{carrierName[e.carrier]}</Badge>
-                <button onClick={onClose} className="rounded-md border border-slate-200 px-2 py-0.5 text-xs text-slate-500 hover:bg-slate-50">
+                <button ref={closeRef} onClick={onClose} className="rounded-md border border-slate-200 px-2 py-0.5 text-xs text-slate-500 hover:bg-slate-50">
                   Close ✕
                 </button>
               </div>

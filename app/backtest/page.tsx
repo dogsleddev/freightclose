@@ -19,7 +19,7 @@ export default function BackTest() {
     <div className="space-y-6">
       <PageHeader
         title="Accuracy & back-test"
-        lead="Two honest views of the engine's own accuracy. Reconstruction proves the pricing mechanics reproduce six months of invoices to the cent (in-sample). The expanding-window forecast is the out-of-sample test — each month's rate index is calibrated only from prior months, then applied to that month's actual activity (no circularity). The head-to-head against Denise's trailing average lives on the Denise Comparison tab."
+        lead="Two honest views of the engine's own accuracy. Reconstruction proves the pricing mechanics reproduce six months of invoices to the cent (in-sample). The expanding-window forecast is the out-of-sample test — each month's rate index is calibrated only from prior months, then applied to that month's actual activity (no circularity). The head-to-head against Denise's trailing average lives on the vs. Denise tab."
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -74,8 +74,8 @@ export default function BackTest() {
               </tr>
             </thead>
             <tbody className="tnum">
-              {b.cells.map((c, i) => (
-                <tr key={i} className="border-b border-slate-100">
+              {[...b.cells].reverse().map((c) => (
+                <tr key={`${c.month}-${c.carrier}`} className="border-b border-slate-100">
                   <td className="py-1.5 pr-4 text-slate-600">{c.month}</td>
                   <td className="py-1.5 pr-4">{carrierName[c.carrier]}</td>
                   <td className="py-1.5 pr-4 text-right">{fmtUsd(c.engineEstimate)}</td>
@@ -87,7 +87,7 @@ export default function BackTest() {
           </table>
         </div>
         <p className="mt-3 text-xs text-slate-500">
-          First month is cold-start (no prior invoices to calibrate from) and excluded from the headline metrics.
+          Listed newest first. The earliest month (cold-start — no prior invoices to calibrate from) is excluded from the headline metrics.
         </p>
       </Card>
 

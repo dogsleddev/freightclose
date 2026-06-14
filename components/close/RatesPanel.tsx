@@ -9,7 +9,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { accrualRun } from "@/app/lib/accrual";
 import { Card, Badge } from "@/components/ui";
-import { carrierName, fmtPct, fmtUsd } from "@/app/lib/format";
+import { carrierName, fmtPct, fmtUsd, fmtSignedPct } from "@/app/lib/format";
 import {
   BUNDLED_VERSION,
   resolveConfigFor,
@@ -418,6 +418,50 @@ export function RatesPanel() {
         )}
       </Card>
 
+      {/* Calibration: printed card vs invoice index (moved here from the Overview) */}
+      <Card
+        title="Calibration: printed card vs invoice reality"
+        subtitle="Each carrier applies a monthly rate index on top of the printed card. We calibrate it from invoices; the printed card alone is stale — in both directions."
+      >
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
+                <th className="py-2 pr-4 font-medium">Carrier</th>
+                <th className="py-2 pr-4 text-right font-medium">Calibrated index</th>
+                <th className="py-2 pr-4 text-right font-medium">Range (6 mo)</th>
+                <th className="py-2 pr-4 text-right font-medium">Printed card</th>
+              </tr>
+            </thead>
+            <tbody className="tnum">
+              {(["peak", "heartland", "coastal"] as const).map((c) => {
+                const idx = accrualRun.calibration.rateIndex.aprilByCarrier[c];
+                const stats = accrualRun.calibration.rateIndex.statsByCarrier[c];
+                const div = accrualRun.calibration[c].divergence;
+                return (
+                  <tr key={c} className="border-b border-slate-100">
+                    <td className="py-2 pr-4">{carrierName[c]}</td>
+                    <td className="py-2 pr-4 text-right font-medium">{idx.toFixed(3)}×</td>
+                    <td className="py-2 pr-4 text-right text-xs text-slate-500">
+                      {stats.min.toFixed(2)}–{stats.max.toFixed(2)}
+                    </td>
+                    <td className="py-2 pr-4 text-right text-xs">
+                      <span className={div.direction === "printed_high" ? "text-amber-700" : "text-sky-700"}>
+                        runs {fmtSignedPct(div.divergencePct)} {div.direction === "printed_high" ? "high" : "low"}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs text-slate-600">
+          Peak&apos;s printed card runs high (≈ the findings&apos; ~20%); Heartland&apos;s and Coastal&apos;s run low
+          recently. Calibrating from invoices catches both directions — a static card cannot.
+        </p>
+      </Card>
+
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
         {/* Peak */}
         <Card title="Peak Logistics" subtitle="per-mile by weight tier × monthly index + FSC">
@@ -580,7 +624,7 @@ export function RatesPanel() {
           ))}
         </ul>
         <p className="mt-3 text-xs leading-relaxed text-slate-500">
-          Applies to the next close you run on the Monthly Close tab (saved in this browser).
+          Applies to the next close you run on the Run a close tab (saved in this browser).
         </p>
       </Card>
 

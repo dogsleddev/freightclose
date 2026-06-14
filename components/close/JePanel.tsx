@@ -87,7 +87,7 @@ export function JePanel() {
     <div className="space-y-6">
       <Card
         title="Period"
-        subtitle="October–March are recreated from actual carrier invoices (not estimates — they tie to the invoice register). April 2026 is the close-time accrual; months you close on the Monthly Close tab join the list."
+        subtitle="October–March are recreated from actual carrier invoices (not estimates — they tie to the invoice register). April 2026 is the close-time accrual; months you close on the Run a close tab join the list."
         right={
           <select
             value={current.periodKey}

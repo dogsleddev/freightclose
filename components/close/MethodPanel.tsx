@@ -63,9 +63,9 @@ export function MethodPanel() {
       <Card title="Where the figures on this page come from" subtitle="Nothing on this page is typed in — every number is read from the deterministic run output.">
         <p className="text-sm leading-relaxed text-slate-600">
           The engine is ~4,200 lines of unit-tested TypeScript with no database and no network calls. It runs at build
-          time (this site) and in your browser (Monthly Close, and the lab above). Same inputs + same config ⇒
+          time (this site) and in your browser (Run a close, and the lab above). Same inputs + same config ⇒
           byte-identical output — that determinism is what makes the {fmtUsd(0.32, 2).replace("$0.32", "±$0.32")}{" "}
-          reconstruction and the &ldquo;Re-run &amp; verify&rdquo; proof on the Monthly Close tab possible. Current
+          reconstruction and the &ldquo;Re-run &amp; verify&rdquo; proof on the Run a close tab possible. Current
           April indices: Peak {idx.aprilByCarrier.peak}, Heartland {idx.aprilByCarrier.heartland}, Coastal{" "}
           {idx.aprilByCarrier.coastal}.
         </p>
@@ -103,7 +103,7 @@ function MethodologyDetail({ run }: { run: AccrualRun }) {
     { src: "Shipments (current period)", recs: `${run.inputs.shipmentRows} rows → ${run.inputs.uniqueShipments} unique`, use: "Priced this period; deduped + carrier-name normalized on ingest." },
     { src: "Carrier invoices (history)", recs: `${run.inputs.invoiceLines} lines through ${run.inputs.invoicesThrough}`, use: "Calibrate effective rates + the honest back-test; the actual register for closed months." },
     { src: "Rate cards (Peak / Heartland / Coastal)", recs: "3 contracted cards", use: "Structural rates + fallback; calibrated against billed invoices (cards run stale)." },
-    { src: "Denise baseline", recs: `${deniseRows} carrier-months`, use: "Prior manual estimate — comparison only, quarantined to the Denise Comparison tab." },
+    { src: "Denise baseline", recs: `${deniseRows} carrier-months`, use: "Prior manual estimate — comparison only, quarantined to the vs. Denise tab." },
   ];
 
   const assumptions = [
@@ -119,7 +119,7 @@ function MethodologyDetail({ run }: { run: AccrualRun }) {
     "Historical shipments (Oct 2025–Mar 2026) are reconstructed from invoice line items (origin assumed Denver; residential inferred from accessorial detail) and are badged \"Reconstructed\" — the back-test's absolute error carries that noise.",
     "The confidence band is ±1σ of each carrier's monthly rate-index volatility, combined in quadrature assuming independence — a first-order estimate, not a full distribution.",
     "One-off accessorial surges and credit adjustments aren't predicted shipment-by-shipment; a small historical credit reserve absorbs the run-rate, the rest shows as variance at true-up.",
-    "Out-of-sample, a trailing average is hard to beat on per-month MAPE; Freight Close's edge is transparency, adaptability, controls, repeatability, and a near-unbiased estimate — shown honestly on Accuracy / Back-test and Denise Comparison.",
+    "Out-of-sample, a trailing average is hard to beat on per-month MAPE; Freight Close's edge is transparency, adaptability, controls, repeatability, and a near-unbiased estimate — shown honestly on the Accuracy and vs. Denise tabs.",
   ];
 
   return (

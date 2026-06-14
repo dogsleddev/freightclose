@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, Badge, PageHeader } from "@/components/ui";
 import { AskFreightClose } from "@/components/AskFreightClose";
 import {
   fmtUsd,
   fmtUsd2,
-  fmtPct,
   fmtSignedPct,
   carrierName,
   carrierAccent,
@@ -88,7 +88,11 @@ export default function Dashboard() {
                     <td className="py-2 pr-4 text-right text-xs text-slate-500">
                       {fmtUsd(band.low)}–{fmtUsd(band.high)}
                     </td>
-                    <td className="py-2 pr-4 text-right">{cs.exceptionCount}</td>
+                    <td className="py-2 pr-4 text-right">
+                      <Link href="/exceptions" className="text-slate-700 underline-offset-2 hover:text-ink hover:underline">
+                        {cs.exceptionCount}
+                      </Link>
+                    </td>
                   </tr>
                 );
               })}
@@ -101,53 +105,41 @@ export default function Dashboard() {
                 <td className="py-2 pr-4 text-right text-xs text-slate-500">
                   {fmtUsd(r.confidence.total.low)}–{fmtUsd(r.confidence.total.high)}
                 </td>
-                <td className="py-2 pr-4 text-right">{r.exceptions.length}</td>
+                <td className="py-2 pr-4 text-right">
+                  <Link href="/exceptions" className="text-slate-700 underline-offset-2 hover:text-ink hover:underline">
+                    {r.exceptions.length}
+                  </Link>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p className="mt-3 text-xs leading-relaxed text-slate-500">
+          <b>Credit reserve</b> is a small credit (≈ {fmtSignedPct(r.totalCreditReserve / (r.totalAccrual - r.totalCreditReserve))}{" "}
+          of invoiced) booked every month from the carriers&apos; historical net-adjustment run-rate (post-billing
+          credits and corrections), so the accrual is not systematically higher than what the carriers eventually
+          invoice.{" "}
+          <Link href="/exceptions" className="underline-offset-2 hover:text-ink hover:underline">
+            Flags
+          </Link>{" "}
+          link to the exception register.
+        </p>
       </Card>
 
-      {/* calibration / rate index */}
-      <Card title="Calibration: printed card vs invoice reality" subtitle="Each carrier applies a monthly rate index on top of the printed card. We calibrate it from invoices; the printed card alone is wrong.">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
-                <th className="py-2 pr-4 font-medium">Carrier</th>
-                <th className="py-2 pr-4 text-right font-medium">April index</th>
-                <th className="py-2 pr-4 text-right font-medium">Range (6 mo)</th>
-                <th className="py-2 pr-4 text-right font-medium">Printed card</th>
-              </tr>
-            </thead>
-            <tbody className="tnum">
-              {(["peak", "heartland", "coastal"] as const).map((c) => {
-                const idx = r.calibration.rateIndex.aprilByCarrier[c];
-                const stats = r.calibration.rateIndex.statsByCarrier[c];
-                const div = r.calibration[c].divergence;
-                return (
-                  <tr key={c} className="border-b border-slate-100">
-                    <td className="py-2 pr-4">{carrierName[c]}</td>
-                    <td className="py-2 pr-4 text-right font-medium">{idx.toFixed(3)}×</td>
-                    <td className="py-2 pr-4 text-right text-xs text-slate-500">
-                      {stats.min.toFixed(2)}–{stats.max.toFixed(2)}
-                    </td>
-                    <td className="py-2 pr-4 text-right text-xs">
-                      <span className={div.direction === "printed_high" ? "text-amber-700" : "text-sky-700"}>
-                        runs {fmtSignedPct(div.divergencePct)} {div.direction === "printed_high" ? "high" : "low"}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <p className="mt-3 text-xs text-slate-600">
-            Peak&apos;s printed card runs high (≈ the findings&apos; ~20%); Heartland&apos;s and Coastal&apos;s run low
-            recently. Calibrating from invoices catches both directions — a static card cannot.
-          </p>
-        </Card>
+      {/* calibration thesis — one-liner; full printed-vs-calibrated table lives on Rates */}
+      <Card title="Why calibrate from invoices" subtitle="The printed rate card is stale in both directions — calibrating from the carriers' own invoices fixes it.">
+        <p className="text-sm leading-relaxed text-slate-600">
+          Each carrier applies a monthly rate index on top of its printed card. Peak&apos;s printed card runs{" "}
+          <b className="text-amber-700">{fmtSignedPct(r.calibration.peak.divergence.divergencePct)} {r.calibration.peak.divergence.direction === "printed_high" ? "high" : "low"}</b>;
+          Heartland and Coastal run low recently. A static card can&apos;t catch either direction — calibrating from
+          invoice history does. The full printed-vs-calibrated table, by carrier, is on{" "}
+          <Link href="/rates" className="font-medium underline-offset-2 hover:text-ink hover:underline">Rates</Link>,
+          and the engine&apos;s out-of-sample accuracy is on{" "}
+          <Link href="/backtest" className="font-medium underline-offset-2 hover:text-ink hover:underline">Accuracy</Link>.
+        </p>
+      </Card>
 
-      {/* journal entry */}
+      {/* journal entry — compact summary; the full entry + month-over-month is on Journal Entries */}
       <Card
         title="Journal entry — accrued freight liability"
         subtitle={r.journalEntry.description}
@@ -160,47 +152,39 @@ export default function Dashboard() {
             >
               Export JE (NetSuite CSV)
             </a>
-            <a
-              href="/freightclose-shipment-backup-april-2026.csv"
-              download
+            <Link
+              href="/je"
               className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
             >
-              Export backup
-            </a>
+              View full entry →
+            </Link>
           </div>
         }
       >
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
-                <th className="py-2 pr-4 font-medium">Account</th>
-                <th className="py-2 pr-4 font-medium">Memo</th>
-                <th className="py-2 pr-4 text-right font-medium">Debit</th>
-                <th className="py-2 pr-4 text-right font-medium">Credit</th>
-              </tr>
-            </thead>
-            <tbody className="tnum">
-              {r.journalEntry.lines.map((l, i) => (
-                <tr key={i} className="border-b border-slate-100">
-                  <td className="py-2 pr-4 whitespace-nowrap">
-                    <span className="font-mono text-xs text-slate-500">{l.account}</span> {l.accountName}
-                  </td>
-                  <td className="py-2 pr-4 text-xs text-slate-600">{l.memo}</td>
-                  <td className="py-2 pr-4 text-right">{l.type === "debit" ? fmtUsd2(l.amount) : ""}</td>
-                  <td className="py-2 pr-4 text-right">{l.type === "credit" ? fmtUsd2(l.amount) : ""}</td>
-                </tr>
-              ))}
-              <tr className="font-semibold">
-                <td className="py-2 pr-4" colSpan={2}>
-                  Totals {r.journalEntry.balanced ? "· balanced ✓" : "· OUT OF BALANCE"}
-                </td>
-                <td className="py-2 pr-4 text-right">{fmtUsd2(r.journalEntry.totalDebits)}</td>
-                <td className="py-2 pr-4 text-right">{fmtUsd2(r.journalEntry.totalCredits)}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm">
+          <div>
+            <span className="text-slate-500">Dr Freight Expense (by carrier)</span>{" "}
+            <span className="tnum font-semibold">{fmtUsd2(r.journalEntry.totalDebits)}</span>
+          </div>
+          <div>
+            <span className="text-slate-500">Cr Accrued Freight Liability</span>{" "}
+            <span className="tnum font-semibold">{fmtUsd2(r.journalEntry.totalCredits)}</span>
+          </div>
+          <Badge
+            className={
+              r.journalEntry.balanced
+                ? "bg-emerald-100 text-emerald-800 ring-emerald-200"
+                : "bg-red-100 text-red-800 ring-red-200"
+            }
+          >
+            {r.journalEntry.balanced ? "balanced ✓" : "OUT OF BALANCE"}
+          </Badge>
         </div>
+        <p className="mt-3 text-xs text-slate-500">
+          {r.journalEntry.lines.length} lines · NetSuite-import layout · reverses on receipt of carrier invoices. The
+          full line-by-line entry with the prior period and the month-over-month move is on{" "}
+          <Link href="/je" className="underline-offset-2 hover:text-ink hover:underline">Journal entries</Link>.
+        </p>
       </Card>
 
       <AskFreightClose />
