@@ -1,0 +1,4 @@
+month,carrier,accrual_estimate,actual_invoiced,variance_dollars,variance_pct,notes
+December 2025,Peak Logistics,30861,27843.97,3017,10.8,"Slower volume, over-accrued"
+December 2025,Heartland Freight,31733,28500,3233,11.3,"Slower month, fewer shipments"
+December 2025,Coastal Express,24300,21200,3100,14.6,

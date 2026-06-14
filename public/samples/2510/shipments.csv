@@ -1,0 +1,136 @@
+shipment_id,date,origin_city,origin_state,destination_city,destination_state,destination_zip,carrier,service_level,weight_lbs,units,residential,special_handling
+PLG-2458591,2025-10-01,Denver,CO,Casper,WY,82601,Peak Logistics,Standard,387.3,,FALSE,
+PLG-8038374,2025-10-02,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,149,,FALSE,Liftgate
+PLG-5661907,2025-10-03,Denver,CO,Laramie,WY,82070,Peak Logistics,Standard,450.5,,FALSE,Liftgate
+PLG-5437923,2025-10-04,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Standard,219.5,,FALSE,
+PLG-7067228,2025-10-05,Denver,CO,Idaho Falls,ID,83401,Peak Logistics,Standard,1952.8,,FALSE,
+PLG-2694522,2025-10-06,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,150.8,,FALSE,Liftgate
+PLG-5479144,2025-10-07,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,1042.9,,FALSE,
+PLG-4684531,2025-10-08,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,772.6,,FALSE,Liftgate
+PLG-4539704,2025-10-09,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,63.9,,FALSE,
+PLG-8698256,2025-10-10,Denver,CO,Great Falls,MT,59401,Peak Logistics,Standard,2512,,FALSE,
+PLG-7700828,2025-10-11,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,298.6,,FALSE,
+PLG-8082668,2025-10-12,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,619.4,,FALSE,Appointment Delivery
+PLG-1192619,2025-10-13,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,2008.2,,FALSE,
+PLG-2871534,2025-10-14,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,1290.7,,FALSE,
+PLG-9398441,2025-10-15,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,1991.1,,FALSE,
+PLG-4337174,2025-10-16,Denver,CO,Provo,UT,84601,Peak Logistics,Standard,3275.8,,FALSE,
+PLG-1326765,2025-10-17,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,1679.8,,FALSE,Liftgate
+PLG-2321324,2025-10-18,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Standard,3220.2,,FALSE,"Liftgate, Inside Delivery"
+PLG-3770370,2025-10-19,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,1981.3,,FALSE,Appointment Delivery
+PLG-4374754,2025-10-20,Denver,CO,Laramie,WY,82070,Peak Logistics,Standard,824,,FALSE,
+PLG-3030113,2025-10-21,Denver,CO,Idaho Falls,ID,83401,Peak Logistics,Standard,2977.2,,FALSE,
+PLG-2191066,2025-10-22,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,309.8,,FALSE,
+PLG-9143903,2025-10-23,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,470.3,,FALSE,Liftgate
+PLG-8935169,2025-10-24,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,1842.4,,FALSE,
+PLG-1908841,2025-10-25,Denver,CO,Casper,WY,82601,Peak Logistics,Standard,344.1,,FALSE,
+PLG-9997381,2025-10-26,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,386.8,,FALSE,Liftgate
+PLG-2642635,2025-10-27,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,265.7,,FALSE,"Liftgate, Inside Delivery"
+PLG-3790237,2025-10-28,Denver,CO,Laramie,WY,82070,Peak Logistics,Standard,2021.6,,FALSE,
+PLG-7550190,2025-10-01,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,224.1,,FALSE,
+PLG-9164991,2025-10-02,Denver,CO,Pueblo,CO,81001,Peak Logistics,Standard,370.5,,FALSE,
+PLG-1841248,2025-10-03,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Standard,77.9,,FALSE,Liftgate
+PLG-4117625,2025-10-04,Denver,CO,Laramie,WY,82070,Peak Logistics,Standard,2724.4,,FALSE,
+PLG-5130808,2025-10-05,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,834.4,,FALSE,
+PLG-5374922,2025-10-06,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,1141.1,,FALSE,
+PLG-6304573,2025-10-07,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Standard,231.6,,FALSE,
+HFL-3500715,2025-10-08,Denver,CO,St. Paul,MN,55101,Heartland Freight,Standard,1149,,FALSE,Liftgate
+HFL-3138181,2025-10-09,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,2142.4,,FALSE,
+HFL-1669324,2025-10-10,Denver,CO,Chicago,IL,60601,Heartland Freight,Standard,938.9,,FALSE,
+HFL-7817881,2025-10-11,Denver,CO,Kansas City,KS,66101,Heartland Freight,Standard,674.6,,FALSE,
+HFL-3726327,2025-10-12,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,1990.8,,FALSE,
+HFL-6573147,2025-10-13,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,2164.3,,FALSE,
+HFL-5476257,2025-10-14,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,2107.4,,FALSE,
+HFL-8896868,2025-10-15,Denver,CO,Cedar Rapids,IA,52401,Heartland Freight,Standard,1965.9,,FALSE,
+HFL-4818418,2025-10-16,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,681.6,,FALSE,
+HFL-2164686,2025-10-17,Denver,CO,Rockford,IL,61101,Heartland Freight,Standard,250.2,,FALSE,
+HFL-9996207,2025-10-18,Denver,CO,Kansas City,KS,66101,Heartland Freight,Standard,1013.3,,FALSE,
+HFL-3995870,2025-10-19,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,2308.5,,FALSE,
+HFL-8290770,2025-10-20,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,2386.2,,FALSE,
+HFL-9580255,2025-10-21,Denver,CO,Springfield,MO,65801,Heartland Freight,Standard,1860.6,,FALSE,
+HFL-8315831,2025-10-22,Denver,CO,Duluth,MN,55801,Heartland Freight,Standard,1097.2,,FALSE,
+HFL-4305700,2025-10-23,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,1432.7,,FALSE,
+HFL-6266630,2025-10-24,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,1235.4,,FALSE,
+HFL-7851696,2025-10-25,Denver,CO,Duluth,MN,55801,Heartland Freight,Standard,1838.7,,FALSE,
+HFL-8053918,2025-10-26,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,1115,,FALSE,
+HFL-6049101,2025-10-27,Denver,CO,Wichita,KS,67201,Heartland Freight,Standard,1816.2,,FALSE,
+HFL-8212326,2025-10-28,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,1416.5,,FALSE,
+HFL-4585314,2025-10-01,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,1583.4,,FALSE,
+HFL-2422633,2025-10-02,Denver,CO,Lincoln,NE,68501,Heartland Freight,Standard,2100.9,,FALSE,
+HFL-4940441,2025-10-03,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,1405.3,,FALSE,
+HFL-1775337,2025-10-04,Denver,CO,St. Paul,MN,55101,Heartland Freight,Standard,938.2,,FALSE,
+HFL-8640615,2025-10-05,Denver,CO,Rockford,IL,61101,Heartland Freight,Standard,2494.6,,FALSE,
+HFL-7442089,2025-10-06,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,2261.1,,FALSE,
+HFL-2788238,2025-10-07,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,1097.2,,FALSE,
+HFL-8793853,2025-10-08,Denver,CO,Kansas City,KS,66101,Heartland Freight,Standard,721.8,,FALSE,
+HFL-3237058,2025-10-09,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,1532.7,,FALSE,
+HFL-8425149,2025-10-10,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,1803.3,,FALSE,
+HFL-8481188,2025-10-11,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,2141.8,,FALSE,
+HFL-5147994,2025-10-12,Denver,CO,Duluth,MN,55801,Heartland Freight,Standard,1916.6,,FALSE,
+HFL-5606980,2025-10-13,Denver,CO,St. Louis,MO,63101,Heartland Freight,Standard,1974.1,,FALSE,
+HFL-6363836,2025-10-14,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,374.4,,FALSE,
+HFL-4589533,2025-10-15,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,377.8,,FALSE,
+HFL-2044645,2025-10-16,Denver,CO,Iowa City,IA,52240,Heartland Freight,Standard,1146.3,,FALSE,
+HFL-1327691,2025-10-17,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,2109.8,,FALSE,
+HFL-7542890,2025-10-18,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,1043.1,,FALSE,
+HFL-4700025,2025-10-19,Denver,CO,Wichita,KS,67201,Heartland Freight,Standard,1468.7,,FALSE,
+HFL-7783308,2025-10-20,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,705.1,,FALSE,Inside Delivery
+HFL-9961107,2025-10-21,Denver,CO,St. Paul,MN,55101,Heartland Freight,Standard,581.2,,FALSE,
+HFL-2408404,2025-10-22,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,2312,,FALSE,
+HFL-4551070,2025-10-23,Denver,CO,Wichita,KS,67201,Heartland Freight,Standard,513.3,,FALSE,Inside Delivery
+HFL-8072684,2025-10-24,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,973.9,,FALSE,
+HFL-1873851,2025-10-25,Denver,CO,St. Louis,MO,63101,Heartland Freight,Standard,2126.5,,FALSE,
+HFL-1675419,2025-10-26,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,697.7,,FALSE,
+HFL-3117636,2025-10-27,Denver,CO,Duluth,MN,55801,Heartland Freight,Standard,2345.8,,FALSE,Inside Delivery
+HFL-5299055,2025-10-28,Denver,CO,Kansas City,KS,66101,Heartland Freight,Standard,1756.3,,FALSE,
+HFL-2921542,2025-10-01,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,593.2,,FALSE,
+HFL-7296605,2025-10-02,Denver,CO,Rockford,IL,61101,Heartland Freight,Standard,2364.6,,FALSE,Inside Delivery
+HFL-5074336,2025-10-03,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,2327.3,,FALSE,
+HFL-3030966,2025-10-04,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1787.5,,FALSE,
+HFL-9488613,2025-10-05,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,998.6,,FALSE,
+HFL-8273315,2025-10-06,Denver,CO,Norfolk,NE,68701,Heartland Freight,Standard,229,,FALSE,
+CEX-2453962,2025-10-07,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,38.4,,FALSE,
+CEX-7358385,2025-10-08,Denver,CO,Bakersfield,CA,93301,Coastal Express,Standard,16.2,,FALSE,
+CEX-5334434,2025-10-09,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,18.6,,FALSE,
+CEX-9667566,2025-10-10,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,19.2,,FALSE,
+CEX-5031966,2025-10-11,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,41.9,,TRUE,Residential Delivery
+CEX-4717770,2025-10-12,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,33.1,,TRUE,Residential Delivery
+CEX-9907391,2025-10-13,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,20.9,,FALSE,
+CEX-5545223,2025-10-14,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,19.5,,TRUE,Residential Delivery
+CEX-9990305,2025-10-15,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,17.1,,TRUE,Residential Delivery
+CEX-9801946,2025-10-16,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,43.8,,TRUE,Residential Delivery
+CEX-4010529,2025-10-17,Denver,CO,Seattle,WA,98101,Coastal Express,Standard,30,,TRUE,Residential Delivery
+CEX-5901239,2025-10-18,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,17.4,,TRUE,Residential Delivery
+CEX-1205779,2025-10-19,Denver,CO,Tacoma,WA,98401,Coastal Express,Standard,32.2,,TRUE,Residential Delivery
+CEX-5235884,2025-10-20,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,28.1,,TRUE,Residential Delivery
+CEX-1899411,2025-10-21,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,42.7,,TRUE,Residential Delivery
+CEX-2987287,2025-10-22,Denver,CO,Portland,OR,97201,Coastal Express,Standard,11.4,,FALSE,
+CEX-9767312,2025-10-23,Denver,CO,Bakersfield,CA,93301,Coastal Express,Standard,27.3,,TRUE,Residential Delivery
+CEX-6123430,2025-10-24,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,20.9,,TRUE,Residential Delivery
+CEX-4486102,2025-10-25,Denver,CO,Portland,OR,97201,Coastal Express,Standard,27,,FALSE,
+CEX-2259379,2025-10-26,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,29.7,,TRUE,Residential Delivery
+CEX-4883526,2025-10-27,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,1064.6,,FALSE,
+CEX-5438490,2025-10-28,Denver,CO,Portland,OR,97201,Coastal Express,Standard,1276.6,,FALSE,
+CEX-4771676,2025-10-01,Denver,CO,Oakland,CA,94612,Coastal Express,Standard,2168.7,,FALSE,
+CEX-6160869,2025-10-02,Denver,CO,Portland,OR,97201,Coastal Express,Standard,1964.9,,FALSE,Liftgate
+CEX-6101803,2025-10-03,Denver,CO,Tacoma,WA,98401,Coastal Express,Standard,1861.8,,FALSE,
+CEX-1668752,2025-10-04,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,2061.1,,FALSE,
+CEX-1348050,2025-10-05,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,2361.5,,FALSE,
+CEX-9706768,2025-10-06,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,2541.9,,FALSE,
+CEX-9249789,2025-10-07,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,1972.7,,FALSE,
+CEX-3698193,2025-10-08,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,2454.5,,FALSE,
+CEX-1615675,2025-10-09,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,1386,,FALSE,
+CEX-1019311,2025-10-10,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,1560.6,,FALSE,
+CEX-9363326,2025-10-11,Denver,CO,Oakland,CA,94612,Coastal Express,Standard,1933.3,,FALSE,
+CEX-5832327,2025-10-12,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,1906.4,,FALSE,
+CEX-5014745,2025-10-13,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,1574,,FALSE,
+CEX-2903561,2025-10-14,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,1990.1,,FALSE,
+CEX-5896624,2025-10-15,Denver,CO,Tacoma,WA,98401,Coastal Express,Standard,1550,,FALSE,
+CEX-3426689,2025-10-16,Denver,CO,Tacoma,WA,98401,Coastal Express,Standard,1647,,FALSE,
+CEX-5634662,2025-10-17,Denver,CO,Oakland,CA,94612,Coastal Express,Standard,1502.2,,FALSE,
+CEX-1043037,2025-10-18,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,2176.5,,FALSE,
+CEX-8491822,2025-10-19,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,1269.1,,FALSE,
+CEX-6398528,2025-10-20,Denver,CO,Bakersfield,CA,93301,Coastal Express,Standard,1705.6,,FALSE,
+CEX-7891662,2025-10-21,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,2366.4,,FALSE,
+CEX-3551903,2025-10-22,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,893.5,,FALSE,
+CEX-2683838,2025-10-23,Denver,CO,Bakersfield,CA,93301,Coastal Express,Standard,1597.1,,FALSE,

@@ -1,0 +1,464 @@
+[
+  {
+    "periodKey": "2025-10",
+    "periodLabel": "October 2025",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "October 2025",
+      "date": "2025-10-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate October 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31738.22,
+          "memo": "October 2025 outbound freight (actuals) — Peak Logistics (35 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 32800,
+          "memo": "October 2025 outbound freight (actuals) — Heartland Freight (55 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 24100,
+          "memo": "October 2025 outbound freight (actuals) — Coastal Express (45 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 88638.22,
+          "memo": "October 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 88638.22,
+      "totalCredits": 88638.22,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 35,
+        "base": 26912.93,
+        "fuel": 3767.8,
+        "accessorials": 1100,
+        "adjustments": -42.51,
+        "total": 31738.22
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 55,
+        "base": 32242.36,
+        "fuel": 0,
+        "accessorials": 625,
+        "adjustments": -67.36,
+        "total": 32800
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 45,
+        "base": 21839.01,
+        "fuel": 2074.73,
+        "accessorials": 252.5,
+        "adjustments": -66.24,
+        "total": 24100
+      }
+    ],
+    "invoiceLines": 135
+  },
+  {
+    "periodKey": "2025-11",
+    "periodLabel": "November 2025",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "November 2025",
+      "date": "2025-11-30",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate November 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31045.29,
+          "memo": "November 2025 outbound freight (actuals) — Peak Logistics (36 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31900,
+          "memo": "November 2025 outbound freight (actuals) — Heartland Freight (58 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 25800,
+          "memo": "November 2025 outbound freight (actuals) — Coastal Express (48 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 88745.29,
+          "memo": "November 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 88745.29,
+      "totalCredits": 88745.29,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 36,
+        "base": 27265.22,
+        "fuel": 3817.12,
+        "accessorials": 350,
+        "adjustments": -387.05,
+        "total": 31045.29
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 58,
+        "base": 31541.53,
+        "fuel": 0,
+        "accessorials": 395,
+        "adjustments": -36.53,
+        "total": 31900
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 48,
+        "base": 23106.03,
+        "fuel": 2195.16,
+        "accessorials": 535,
+        "adjustments": -36.19,
+        "total": 25800
+      }
+    ],
+    "invoiceLines": 142
+  },
+  {
+    "periodKey": "2025-12",
+    "periodLabel": "December 2025",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "December 2025",
+      "date": "2025-12-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate December 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 27843.97,
+          "memo": "December 2025 outbound freight (actuals) — Peak Logistics (30 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 28500,
+          "memo": "December 2025 outbound freight (actuals) — Heartland Freight (48 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 21199.99,
+          "memo": "December 2025 outbound freight (actuals) — Coastal Express (38 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 77543.96,
+          "memo": "December 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 77543.96,
+      "totalCredits": 77543.96,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 30,
+        "base": 24067.05,
+        "fuel": 3369.35,
+        "accessorials": 475,
+        "adjustments": -67.43,
+        "total": 27843.97
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 48,
+        "base": 28393.35,
+        "fuel": 0,
+        "accessorials": 175,
+        "adjustments": -68.35,
+        "total": 28500
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 38,
+        "base": 18871.91,
+        "fuel": 1792.84,
+        "accessorials": 575,
+        "adjustments": -39.76,
+        "total": 21199.99
+      }
+    ],
+    "invoiceLines": 116
+  },
+  {
+    "periodKey": "2026-01",
+    "periodLabel": "January 2026",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "January 2026",
+      "date": "2026-01-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate January 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34396.48,
+          "memo": "January 2026 outbound freight (actuals) — Peak Logistics (33 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 38200,
+          "memo": "January 2026 outbound freight (actuals) — Heartland Freight (54 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 25400.01,
+          "memo": "January 2026 outbound freight (actuals) — Coastal Express (43 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 97996.49,
+          "memo": "January 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 97996.49,
+      "totalCredits": 97996.49,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 33,
+        "base": 29824.04,
+        "fuel": 4175.38,
+        "accessorials": 425,
+        "adjustments": -27.94,
+        "total": 34396.48
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 54,
+        "base": 37911.05,
+        "fuel": 0,
+        "accessorials": 355,
+        "adjustments": -66.05,
+        "total": 38200
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 43,
+        "base": 23064.48,
+        "fuel": 2191.11,
+        "accessorials": 355,
+        "adjustments": -210.58,
+        "total": 25400.01
+      }
+    ],
+    "invoiceLines": 130
+  },
+  {
+    "periodKey": "2026-02",
+    "periodLabel": "February 2026",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "February 2026",
+      "date": "2026-02-28",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate February 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34605.71,
+          "memo": "February 2026 outbound freight (actuals) — Peak Logistics (35 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34600,
+          "memo": "February 2026 outbound freight (actuals) — Heartland Freight (57 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 24900,
+          "memo": "February 2026 outbound freight (actuals) — Coastal Express (46 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 94105.71,
+          "memo": "February 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 94105.71,
+      "totalCredits": 94105.71,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 35,
+        "base": 29718.22,
+        "fuel": 4160.6,
+        "accessorials": 800,
+        "adjustments": -73.11,
+        "total": 34605.71
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 57,
+        "base": 34562.03,
+        "fuel": 0,
+        "accessorials": 260,
+        "adjustments": -222.03,
+        "total": 34600
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 46,
+        "base": 22531.82,
+        "fuel": 2140.62,
+        "accessorials": 277.5,
+        "adjustments": -49.94,
+        "total": 24900
+      }
+    ],
+    "invoiceLines": 138
+  },
+  {
+    "periodKey": "2026-03",
+    "periodLabel": "March 2026",
+    "basis": "actuals",
+    "journalEntry": {
+      "period": "March 2026",
+      "date": "2026-03-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate March 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34216.86,
+          "memo": "March 2026 outbound freight (actuals) — Peak Logistics (38 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 33200,
+          "memo": "March 2026 outbound freight (actuals) — Heartland Freight (62 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 26300,
+          "memo": "March 2026 outbound freight (actuals) — Coastal Express (50 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 93716.86,
+          "memo": "March 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 93716.86,
+      "totalCredits": 93716.86,
+      "balanced": true
+    },
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "invoiceLines": 38,
+        "base": 29157.08,
+        "fuel": 4082.01,
+        "accessorials": 1025,
+        "adjustments": -47.23,
+        "total": 34216.86
+      },
+      {
+        "carrier": "heartland",
+        "invoiceLines": 62,
+        "base": 32557.63,
+        "fuel": 0,
+        "accessorials": 745,
+        "adjustments": -102.63,
+        "total": 33200
+      },
+      {
+        "carrier": "coastal",
+        "invoiceLines": 50,
+        "base": 23688.05,
+        "fuel": 2250.42,
+        "accessorials": 405,
+        "adjustments": -43.47,
+        "total": 26300
+      }
+    ],
+    "invoiceLines": 150
+  }
+]

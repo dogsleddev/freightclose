@@ -1,0 +1,4 @@
+month,carrier,accrual_estimate,actual_invoiced,variance_dollars,variance_pct,notes
+October 2025,Peak Logistics,29167,31738.22,-2571,-8.1,
+October 2025,Heartland Freight,29767,32800,-3033,-9.2,"Q4 reset, back to Tier 1 rates"
+October 2025,Coastal Express,22500,24100,-1600,-6.6,More residential orders than expected

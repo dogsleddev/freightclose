@@ -1,0 +1,28 @@
+{
+  "_source": "rate_card_coastal_express.csv (CE-7731, Rev 1, eff 2025-01-01). Printed per-lb rates are the FALLBACK; engine prices on per-lb rates calibrated per region from invoices.",
+  "carrier": "coastal",
+  "displayName": "Coastal Express",
+  "pricingModel": "per_lb_by_region",
+  "regions": [
+    { "key": "SoCal", "label": "Southern California", "zipMin": 90000, "zipMax": 92899, "printedPerLb": 0.48 },
+    { "key": "NorCal", "label": "Northern California", "zipMin": 93000, "zipMax": 96199, "printedPerLb": 0.55 },
+    { "key": "PNW", "label": "Pacific Northwest", "zipMin": 97000, "zipMax": 99499, "printedPerLb": 0.72 }
+  ],
+  "minChargePerShipment": 28.0,
+  "fuelSurchargePct": 0.095,
+  "fuelSurchargeBasis": "base_only",
+  "fuelSurchargeNote": "9.5% applied to base freight only, before accessorials. Fixed through Q2 2026.",
+  "residentialSurchargeTiers": [
+    { "label": "Under 50 lbs", "minLbs": 0, "maxLbs": 49.99, "fee": 12.5 },
+    { "label": "50–500 lbs", "minLbs": 50, "maxLbs": 500, "fee": 35.0 },
+    { "label": "Over 500 lbs", "minLbs": 500.01, "maxLbs": null, "fee": 65.0 }
+  ],
+  "residentialNote": "Assessed per shipment by actual weight whenever the destination is flagged residential.",
+  "accessorials": {
+    "liftgate": 90.0,
+    "inside": 110.0,
+    "appointment": 55.0,
+    "saturday": 150.0
+  },
+  "calcOrder": ["base_with_min", "fuel_on_base", "residential_surcharge", "accessorials_face_value"]
+}

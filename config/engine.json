@@ -1,0 +1,69 @@
+{
+  "_source": "FreightClose engine configuration. Everything a non-engineer might change lives here: rate source, thresholds, calibration window, accounting accounts, and data-normalization maps.",
+  "period": {
+    "label": "April 2026",
+    "year": 2026,
+    "month": 4,
+    "periodEndDate": "2026-04-30",
+    "quarterStart": "2026-04-01"
+  },
+  "rateSource": {
+    "_note": "calibrated (default) prices on rates inferred from recent invoices; printed_override prices on the printed card (for a known rate change not yet in invoices). Divergence past threshold always flags.",
+    "peak": "calibrated",
+    "heartland": "calibrated",
+    "coastal": "calibrated"
+  },
+  "calibration": {
+    "mode": "expanding",
+    "modeOptions": ["expanding", "loo", "full"],
+    "recentWindowMonths": 3,
+    "recentWindowNote": "April rates are calibrated from the most recent N months (Q1 2026) so the accrual reflects current rates, not a stale 6-month blend.",
+    "creditReserve": {
+      "enabled": true,
+      "basis": "historical_adjustment_rate",
+      "note": "Books a small credit reserve equal to the historical net-adjustment run-rate (~-0.3% of invoiced) so the gross accrual is not systematically high vs eventual invoices."
+    }
+  },
+  "thresholds": {
+    "divergencePct": 0.1,
+    "backtestMapeAlarmPct": 0.05,
+    "costOutlierZ": 3.0,
+    "materialityUsd": 1000
+  },
+  "accounting": {
+    "framework": "Accrued liability — expense recognition (matching principle)",
+    "rationale": "Goods shipped in April; the carriers will invoice next month. The freight expense is recognized in the period the shipment occurred and carried as a matching accrued liability until the invoices arrive — a routine month-end accrued expense, not a loss contingency.",
+    "expenseAccount": { "number": "6200", "name": "Freight & Delivery Expense" },
+    "liabilityAccount": { "number": "21500", "name": "Accrued Freight Liability" },
+    "entryMemo": "Accrue April 2026 outbound freight (FreightClose, calibrated estimate; reverses on receipt of carrier invoices)",
+    "reversing": true,
+    "outOfScope": "Inventory freight capitalization (ASC 330) and shipping revenue (ASC 606) are out of scope — the package carries no inventory/COGS or customer-billing data."
+  },
+  "normalization": {
+    "carrierAliases": {
+      "peak": ["Peak Logistics", "PEAK LOG", "Peak", "Peak Logistics LLC"],
+      "heartland": ["Heartland Freight", "HEARTLAND", "Heartland Freight Co.", "Heartland"],
+      "coastal": ["Coastal Express", "Coastal Express LLC", "COASTAL"]
+    },
+    "serviceLevelMap": {
+      "Expedited": "Expedited",
+      "Standard": "Standard",
+      "Ground": "Ground",
+      "Economy": "Economy",
+      "STD": "Standard",
+      "Express": "Expedited"
+    },
+    "serviceAffectsPrice": false,
+    "serviceNote": "No rate card prices by service level and invoices carry no service field; service is normalized for reporting only and the no-price-impact assumption is flagged.",
+    "specialHandlingMap": {
+      "Residential Delivery": "residential",
+      "Residential": "residential",
+      "Liftgate": "liftgate",
+      "Appointment Delivery": "appointment",
+      "Inside Delivery": "inside",
+      "Saturday Delivery": "saturday",
+      "Detention": "detention",
+      "Redelivery": "redelivery_shipper_fault"
+    }
+  }
+}

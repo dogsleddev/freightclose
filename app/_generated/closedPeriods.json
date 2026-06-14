@@ -1,0 +1,902 @@
+[
+  {
+    "periodId": "2510",
+    "periodKey": "2025-10",
+    "label": "October 2025",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": true,
+    "engineTotal": 83873.99,
+    "actualTotal": 88638.22,
+    "varianceDollars": 4764.23,
+    "variancePct": 0.0537,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 24008.87,
+        "actual": 31738.22,
+        "varianceDollars": 7729.35,
+        "variancePct": 0.24350000000000002
+      },
+      {
+        "carrier": "heartland",
+        "engine": 31821.25,
+        "actual": 32800,
+        "varianceDollars": 978.75,
+        "variancePct": 0.0298
+      },
+      {
+        "carrier": "coastal",
+        "engine": 28043.87,
+        "actual": 24100,
+        "varianceDollars": -3943.87,
+        "variancePct": -0.1636
+      }
+    ],
+    "trueUpJournal": {
+      "period": "October 2025",
+      "date": "2025-10-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the October 2025 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 7729.35,
+          "memo": "October 2025 freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $7729.35)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 978.75,
+          "memo": "October 2025 freight true-up — Heartland Freight actual vs accrued estimate (under-accrued $978.75)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 3943.87,
+          "memo": "October 2025 freight true-up — Coastal Express actual vs accrued estimate (over-accrued $3943.87)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 4764.23,
+          "memo": "October 2025 freight accrual true-up to actual invoiced (net under-accrual $4764.23)"
+        }
+      ],
+      "totalDebits": 8708.1,
+      "totalCredits": 8708.1,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "October 2025",
+      "date": "2025-10-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate October 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31738.22,
+          "memo": "October 2025 outbound freight (actuals) — Peak Logistics (35 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 32800,
+          "memo": "October 2025 outbound freight (actuals) — Heartland Freight (55 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 24100,
+          "memo": "October 2025 outbound freight (actuals) — Coastal Express (45 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 88638.22,
+          "memo": "October 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 88638.22,
+      "totalCredits": 88638.22,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 81434,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 24008.87,
+          "denise": 29167,
+          "actual": 31738.22,
+          "engineErrPct": -0.24350000000000002,
+          "deniseErrPct": -0.081
+        },
+        {
+          "carrier": "heartland",
+          "engine": 31821.25,
+          "denise": 29767,
+          "actual": 32800,
+          "engineErrPct": -0.0298,
+          "deniseErrPct": -0.0925
+        },
+        {
+          "carrier": "coastal",
+          "engine": 28043.87,
+          "denise": 22500,
+          "actual": 24100,
+          "engineErrPct": 0.1636,
+          "deniseErrPct": -0.0664
+        }
+      ]
+    }
+  },
+  {
+    "periodId": "2511",
+    "periodKey": "2025-11",
+    "label": "November 2025",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": false,
+    "engineTotal": 98578.5,
+    "actualTotal": 88745.29,
+    "varianceDollars": -9833.21,
+    "variancePct": -0.1108,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 46303.93,
+        "actual": 31045.29,
+        "varianceDollars": -15258.64,
+        "variancePct": -0.4915
+      },
+      {
+        "carrier": "heartland",
+        "engine": 32762.51,
+        "actual": 31900,
+        "varianceDollars": -862.51,
+        "variancePct": -0.027000000000000003
+      },
+      {
+        "carrier": "coastal",
+        "engine": 19512.06,
+        "actual": 25800,
+        "varianceDollars": 6287.94,
+        "variancePct": 0.2437
+      }
+    ],
+    "trueUpJournal": {
+      "period": "November 2025",
+      "date": "2025-11-30",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the November 2025 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 15258.64,
+          "memo": "November 2025 freight true-up — Peak Logistics actual vs accrued estimate (over-accrued $15258.64)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 862.51,
+          "memo": "November 2025 freight true-up — Heartland Freight actual vs accrued estimate (over-accrued $862.51)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 6287.94,
+          "memo": "November 2025 freight true-up — Coastal Express actual vs accrued estimate (under-accrued $6287.94)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "debit",
+          "amount": 9833.21,
+          "memo": "November 2025 freight accrual true-up to actual invoiced (net over-accrual $9833.21)"
+        }
+      ],
+      "totalDebits": 16121.15,
+      "totalCredits": 16121.15,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "November 2025",
+      "date": "2025-11-30",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate November 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31045.29,
+          "memo": "November 2025 outbound freight (actuals) — Peak Logistics (36 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 31900,
+          "memo": "November 2025 outbound freight (actuals) — Heartland Freight (58 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 25800,
+          "memo": "November 2025 outbound freight (actuals) — Coastal Express (48 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 88745.29,
+          "memo": "November 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 88745.29,
+      "totalCredits": 88745.29,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 84479,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 46303.93,
+          "denise": 30246,
+          "actual": 31045.29,
+          "engineErrPct": 0.4915,
+          "deniseErrPct": -0.025699999999999997
+        },
+        {
+          "carrier": "heartland",
+          "engine": 32762.51,
+          "denise": 31033,
+          "actual": 31900,
+          "engineErrPct": 0.027000000000000003,
+          "deniseErrPct": -0.027200000000000002
+        },
+        {
+          "carrier": "coastal",
+          "engine": 19512.06,
+          "denise": 23200,
+          "actual": 25800,
+          "engineErrPct": -0.2437,
+          "deniseErrPct": -0.1008
+        }
+      ]
+    }
+  },
+  {
+    "periodId": "2512",
+    "periodKey": "2025-12",
+    "label": "December 2025",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": false,
+    "engineTotal": 79662.02,
+    "actualTotal": 77543.96,
+    "varianceDollars": -2118.06,
+    "variancePct": -0.0273,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 27361.33,
+        "actual": 27843.97,
+        "varianceDollars": 482.64,
+        "variancePct": 0.0173
+      },
+      {
+        "carrier": "heartland",
+        "engine": 25440.13,
+        "actual": 28500,
+        "varianceDollars": 3059.87,
+        "variancePct": 0.1074
+      },
+      {
+        "carrier": "coastal",
+        "engine": 26860.56,
+        "actual": 21199.99,
+        "varianceDollars": -5660.57,
+        "variancePct": -0.267
+      }
+    ],
+    "trueUpJournal": {
+      "period": "December 2025",
+      "date": "2025-12-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the December 2025 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 482.64,
+          "memo": "December 2025 freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $482.64)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 3059.87,
+          "memo": "December 2025 freight true-up — Heartland Freight actual vs accrued estimate (under-accrued $3059.87)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 5660.57,
+          "memo": "December 2025 freight true-up — Coastal Express actual vs accrued estimate (over-accrued $5660.57)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "debit",
+          "amount": 2118.06,
+          "memo": "December 2025 freight accrual true-up to actual invoiced (net over-accrual $2118.06)"
+        }
+      ],
+      "totalDebits": 5660.57,
+      "totalCredits": 5660.57,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "December 2025",
+      "date": "2025-12-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate December 2025 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 27843.97,
+          "memo": "December 2025 outbound freight (actuals) — Peak Logistics (30 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 28500,
+          "memo": "December 2025 outbound freight (actuals) — Heartland Freight (48 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 21199.99,
+          "memo": "December 2025 outbound freight (actuals) — Coastal Express (38 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 77543.96,
+          "memo": "December 2025 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 77543.96,
+      "totalCredits": 77543.96,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 86894,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 27361.33,
+          "denise": 30861,
+          "actual": 27843.97,
+          "engineErrPct": -0.0173,
+          "deniseErrPct": 0.1084
+        },
+        {
+          "carrier": "heartland",
+          "engine": 25440.13,
+          "denise": 31733,
+          "actual": 28500,
+          "engineErrPct": -0.1074,
+          "deniseErrPct": 0.1134
+        },
+        {
+          "carrier": "coastal",
+          "engine": 26860.56,
+          "denise": 24300,
+          "actual": 21199.99,
+          "engineErrPct": 0.267,
+          "deniseErrPct": 0.1462
+        }
+      ]
+    }
+  },
+  {
+    "periodId": "2601",
+    "periodKey": "2026-01",
+    "label": "January 2026",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": false,
+    "engineTotal": 83885.68,
+    "actualTotal": 97996.49,
+    "varianceDollars": 14110.81,
+    "variancePct": 0.14400000000000002,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 32838.87,
+        "actual": 34396.48,
+        "varianceDollars": 1557.61,
+        "variancePct": 0.0453
+      },
+      {
+        "carrier": "heartland",
+        "engine": 32171.81,
+        "actual": 38200,
+        "varianceDollars": 6028.19,
+        "variancePct": 0.1578
+      },
+      {
+        "carrier": "coastal",
+        "engine": 18875,
+        "actual": 25400.01,
+        "varianceDollars": 6525.01,
+        "variancePct": 0.2569
+      }
+    ],
+    "trueUpJournal": {
+      "period": "January 2026",
+      "date": "2026-01-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the January 2026 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 1557.61,
+          "memo": "January 2026 freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $1557.61)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 6028.19,
+          "memo": "January 2026 freight true-up — Heartland Freight actual vs accrued estimate (under-accrued $6028.19)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 6525.01,
+          "memo": "January 2026 freight true-up — Coastal Express actual vs accrued estimate (under-accrued $6525.01)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 14110.81,
+          "memo": "January 2026 freight accrual true-up to actual invoiced (net under-accrual $14110.81)"
+        }
+      ],
+      "totalDebits": 14110.81,
+      "totalCredits": 14110.81,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "January 2026",
+      "date": "2026-01-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate January 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34396.48,
+          "memo": "January 2026 outbound freight (actuals) — Peak Logistics (33 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 38200,
+          "memo": "January 2026 outbound freight (actuals) — Heartland Freight (54 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 25400.01,
+          "memo": "January 2026 outbound freight (actuals) — Coastal Express (43 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 97996.49,
+          "memo": "January 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 97996.49,
+      "totalCredits": 97996.49,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 84976,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 32838.87,
+          "denise": 30209,
+          "actual": 34396.48,
+          "engineErrPct": -0.0453,
+          "deniseErrPct": -0.1217
+        },
+        {
+          "carrier": "heartland",
+          "engine": 32171.81,
+          "denise": 31067,
+          "actual": 38200,
+          "engineErrPct": -0.1578,
+          "deniseErrPct": -0.1867
+        },
+        {
+          "carrier": "coastal",
+          "engine": 18875,
+          "denise": 23700,
+          "actual": 25400.01,
+          "engineErrPct": -0.2569,
+          "deniseErrPct": -0.0669
+        }
+      ]
+    }
+  },
+  {
+    "periodId": "2602",
+    "periodKey": "2026-02",
+    "label": "February 2026",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": false,
+    "engineTotal": 84955.36,
+    "actualTotal": 94105.71,
+    "varianceDollars": 9150.35,
+    "variancePct": 0.09720000000000001,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 25125.59,
+        "actual": 34605.71,
+        "varianceDollars": 9480.12,
+        "variancePct": 0.27390000000000003
+      },
+      {
+        "carrier": "heartland",
+        "engine": 35275.21,
+        "actual": 34600,
+        "varianceDollars": -675.21,
+        "variancePct": -0.0195
+      },
+      {
+        "carrier": "coastal",
+        "engine": 24554.56,
+        "actual": 24900,
+        "varianceDollars": 345.44,
+        "variancePct": 0.0139
+      }
+    ],
+    "trueUpJournal": {
+      "period": "February 2026",
+      "date": "2026-02-28",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the February 2026 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 9480.12,
+          "memo": "February 2026 freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $9480.12)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 675.21,
+          "memo": "February 2026 freight true-up — Heartland Freight actual vs accrued estimate (over-accrued $675.21)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 345.44,
+          "memo": "February 2026 freight true-up — Coastal Express actual vs accrued estimate (under-accrued $345.44)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 9150.35,
+          "memo": "February 2026 freight accrual true-up to actual invoiced (net under-accrual $9150.35)"
+        }
+      ],
+      "totalDebits": 9825.56,
+      "totalCredits": 9825.56,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "February 2026",
+      "date": "2026-02-28",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate February 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34605.71,
+          "memo": "February 2026 outbound freight (actuals) — Peak Logistics (35 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34600,
+          "memo": "February 2026 outbound freight (actuals) — Heartland Freight (57 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 24900,
+          "memo": "February 2026 outbound freight (actuals) — Coastal Express (46 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 94105.71,
+          "memo": "February 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 94105.71,
+      "totalCredits": 94105.71,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 88095,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 25125.59,
+          "denise": 31095,
+          "actual": 34605.71,
+          "engineErrPct": -0.27390000000000003,
+          "deniseErrPct": -0.1014
+        },
+        {
+          "carrier": "heartland",
+          "engine": 35275.21,
+          "denise": 32867,
+          "actual": 34600,
+          "engineErrPct": 0.0195,
+          "deniseErrPct": -0.0501
+        },
+        {
+          "carrier": "coastal",
+          "engine": 24554.56,
+          "denise": 24133,
+          "actual": 24900,
+          "engineErrPct": -0.0139,
+          "deniseErrPct": -0.0308
+        }
+      ]
+    }
+  },
+  {
+    "periodId": "2603",
+    "periodKey": "2026-03",
+    "label": "March 2026",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "isColdStart": false,
+    "engineTotal": 103275.5,
+    "actualTotal": 93716.86,
+    "varianceDollars": -9558.64,
+    "variancePct": -0.102,
+    "byCarrier": [
+      {
+        "carrier": "peak",
+        "engine": 40337.19,
+        "actual": 34216.86,
+        "varianceDollars": -6120.33,
+        "variancePct": -0.1789
+      },
+      {
+        "carrier": "heartland",
+        "engine": 37350.89,
+        "actual": 33200,
+        "varianceDollars": -4150.89,
+        "variancePct": -0.125
+      },
+      {
+        "carrier": "coastal",
+        "engine": 25587.42,
+        "actual": 26300,
+        "varianceDollars": 712.58,
+        "variancePct": 0.0271
+      }
+    ],
+    "trueUpJournal": {
+      "period": "March 2026",
+      "date": "2026-03-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "True-up of the March 2026 freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 6120.33,
+          "memo": "March 2026 freight true-up — Peak Logistics actual vs accrued estimate (over-accrued $6120.33)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "credit",
+          "amount": 4150.89,
+          "memo": "March 2026 freight true-up — Heartland Freight actual vs accrued estimate (over-accrued $4150.89)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 712.58,
+          "memo": "March 2026 freight true-up — Coastal Express actual vs accrued estimate (under-accrued $712.58)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "debit",
+          "amount": 9558.64,
+          "memo": "March 2026 freight accrual true-up to actual invoiced (net over-accrual $9558.64)"
+        }
+      ],
+      "totalDebits": 10271.22,
+      "totalCredits": 10271.22,
+      "balanced": true
+    },
+    "actualsJournal": {
+      "period": "March 2026",
+      "date": "2026-03-31",
+      "framework": "Accrued liability — expense recognition (matching principle)",
+      "description": "Recreate March 2026 outbound freight expense from actual carrier invoices (recorded at invoiced amounts net of adjustments — actuals, not an estimate). Ties line-for-line to the bundled invoice register.",
+      "lines": [
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 34216.86,
+          "memo": "March 2026 outbound freight (actuals) — Peak Logistics (38 invoice lines, net of adjustments)",
+          "carrier": "peak"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 33200,
+          "memo": "March 2026 outbound freight (actuals) — Heartland Freight (62 invoice lines, net of adjustments)",
+          "carrier": "heartland"
+        },
+        {
+          "account": "6200",
+          "accountName": "Freight & Delivery Expense",
+          "type": "debit",
+          "amount": 26300,
+          "memo": "March 2026 outbound freight (actuals) — Coastal Express (50 invoice lines, net of adjustments)",
+          "carrier": "coastal"
+        },
+        {
+          "account": "21500",
+          "accountName": "Accrued Freight Liability",
+          "type": "credit",
+          "amount": 93716.86,
+          "memo": "March 2026 freight payable per carrier invoice register"
+        }
+      ],
+      "totalDebits": 93716.86,
+      "totalCredits": 93716.86,
+      "balanced": true
+    },
+    "actualsReconcileToDenise": true,
+    "denise": {
+      "totalDenise": 89882,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 40337.19,
+          "denise": 32282,
+          "actual": 34216.86,
+          "engineErrPct": 0.1789,
+          "deniseErrPct": -0.0565
+        },
+        {
+          "carrier": "heartland",
+          "engine": 37350.89,
+          "denise": 33767,
+          "actual": 33200,
+          "engineErrPct": 0.125,
+          "deniseErrPct": 0.0171
+        },
+        {
+          "carrier": "coastal",
+          "engine": 25587.42,
+          "denise": 23833,
+          "actual": 26300,
+          "engineErrPct": -0.0271,
+          "deniseErrPct": -0.09380000000000001
+        }
+      ]
+    }
+  }
+]

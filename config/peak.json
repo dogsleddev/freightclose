@@ -1,0 +1,52 @@
+{
+  "_source": "rate_card_peak_logistics.csv (RLF-2241, Rev 3, eff 2025-01-01). Printed rates are the FALLBACK only; the engine prices on rates/mileage calibrated from invoice history. Edit here, not in code.",
+  "carrier": "peak",
+  "displayName": "Peak Logistics",
+  "pricingModel": "per_mile_by_weight_tier",
+  "weightTiers": [
+    { "key": "lt500", "label": "Under 500 lbs", "minLbs": 0, "maxLbs": 499.99, "printedRatePerMile": 3.25 },
+    { "key": "mid", "label": "500–2,000 lbs", "minLbs": 500, "maxLbs": 2000, "printedRatePerMile": 4.8 },
+    { "key": "gt2000", "label": "Over 2,000 lbs", "minLbs": 2000.01, "maxLbs": null, "printedRatePerMile": 6.4 }
+  ],
+  "fuelSurchargePct": 0.14,
+  "fuelSurchargeNote": "14% of base freight. Fixed through Q2 2026.",
+  "minChargePerShipment": 185.0,
+  "accessorials": {
+    "liftgate": 75.0,
+    "residential": 45.0,
+    "appointment": 50.0,
+    "inside": 125.0,
+    "redelivery_shipper_fault": 150.0,
+    "redelivery_carrier_fault": 0.0
+  },
+  "accessorialsCumulative": true,
+  "territoryStates": ["CO", "UT", "WY", "MT", "ID"],
+  "printedMileageTable": [
+    { "city": "Colorado Springs", "state": "CO", "zip": "80901", "miles": 70 },
+    { "city": "Cheyenne", "state": "WY", "zip": "82001", "miles": 100 },
+    { "city": "Pocatello", "state": "ID", "zip": "83201", "miles": 440 },
+    { "city": "Idaho Falls", "state": "ID", "zip": "83401", "miles": 480 },
+    { "city": "Provo", "state": "UT", "zip": "84601", "miles": 490 },
+    { "city": "Salt Lake City", "state": "UT", "zip": "84101", "miles": 525 },
+    { "city": "Billings", "state": "MT", "zip": "59101", "miles": 550 },
+    { "city": "Ogden", "state": "UT", "zip": "84401", "miles": 590 },
+    { "city": "Great Falls", "state": "MT", "zip": "59401", "miles": 710 },
+    { "city": "Boise", "state": "ID", "zip": "83701", "miles": 830 },
+    { "city": "Missoula", "state": "MT", "zip": "59801", "miles": 830 }
+  ],
+  "geoFallback": {
+    "_note": "Used only when a destination has neither calibrated nor printed mileage. Great-circle distance between ZIP/city centroids x road circuity factor. Always raises a MILEAGE_FALLBACK_GEO exception.",
+    "circuityFactor": 1.2,
+    "centroids": {
+      "denver": { "lat": 39.7392, "lng": -104.9903 },
+      "salt lake city": { "lat": 40.7608, "lng": -111.891 },
+      "80201": { "lat": 39.7392, "lng": -104.9903 },
+      "84101": { "lat": 40.7608, "lng": -111.891 },
+      "89501": { "lat": 39.5296, "lng": -119.8138 }
+    }
+  },
+  "originAssumption": {
+    "_note": "Calibrated mileage is keyed by destination only; invoice history does not separate Denver- vs SLC-origin. Non-Denver-origin shipments are priced at the destination's calibrated (Denver-primary) mileage and flagged.",
+    "primaryOrigin": "Denver"
+  }
+}

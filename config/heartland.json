@@ -1,0 +1,53 @@
+{
+  "_source": "rate_card_heartland_freight.csv (HF-4892, Rev 2, eff 2025-01-01). Zone is by ZIP-prefix, NOT state. Printed zone rates are the FALLBACK; engine prices on rates calibrated per (zone, period) from invoices.",
+  "carrier": "heartland",
+  "displayName": "Heartland Freight",
+  "pricingModel": "flat_zone_rate_fuel_included",
+  "fuelSurchargePct": 0.0,
+  "fuelSurchargeNote": "No separate FSC — fuel is included in the flat zone rate.",
+  "zonePrefixTable": [
+    { "min": 640, "max": 641, "zone": "Z1", "note": "Kansas City metro core, MO" },
+    { "min": 660, "max": 662, "zone": "Z1", "note": "KC metro KS side (Z1 despite KS)" },
+    { "min": 663, "max": 668, "zone": "Z2", "note": "Eastern KS outside KC" },
+    { "min": 669, "max": 679, "zone": "Z2", "note": "Rest of KS" },
+    { "min": 630, "max": 639, "zone": "Z2", "note": "Eastern MO (St. Louis)" },
+    { "min": 650, "max": 659, "zone": "Z2", "note": "Central/southern MO" },
+    { "min": 500, "max": 529, "zone": "Z2", "note": "All Iowa" },
+    { "min": 680, "max": 685, "zone": "Z2", "note": "Southern/central NE" },
+    { "min": 600, "max": 609, "zone": "Z3", "note": "Chicago metro" },
+    { "min": 610, "max": 629, "zone": "Z3", "note": "Rest of Illinois" },
+    { "min": 530, "max": 546, "zone": "Z3", "note": "Southern/central WI" },
+    { "min": 550, "max": 554, "zone": "Z3", "note": "Twin Cities metro MN" },
+    { "min": 547, "max": 549, "zone": "Z4", "note": "Northern WI" },
+    { "min": 555, "max": 567, "zone": "Z4", "note": "Greater MN (non-metro)" },
+    { "min": 686, "max": 693, "zone": "Z4", "note": "Northern/western NE" }
+  ],
+  "printedZoneRates": {
+    "Z1": 320.0,
+    "Z2": 485.0,
+    "Z3": 610.0,
+    "Z4": 780.0
+  },
+  "volumeTiers": [
+    { "tier": 1, "minQtd": 1, "maxQtd": 50, "discount": 0.0 },
+    { "tier": 2, "minQtd": 51, "maxQtd": 120, "discount": 0.05 },
+    { "tier": 3, "minQtd": 121, "maxQtd": 200, "discount": 0.1 },
+    { "tier": 4, "minQtd": 201, "maxQtd": null, "discount": 0.15 }
+  ],
+  "volumeDiscount": {
+    "basis": "cumulative_qtd_shipments",
+    "appliesTo": "base_only",
+    "appliesToAccessorials": false,
+    "prospective": true,
+    "resetDates": ["01-01", "04-01", "07-01", "10-01"],
+    "note": "Counts reset to zero on the first day of each calendar quarter; discount applies prospectively once a tier threshold is crossed; prior shipments are not repriced."
+  },
+  "accessorials": {
+    "liftgate": 85.0,
+    "inside": 135.0,
+    "appointment": 40.0,
+    "detention_per_hour": 75.0
+  },
+  "residentialFee": null,
+  "residentialNote": "Heartland's card has no residential surcharge. A residential-flagged Heartland shipment raises RESIDENTIAL_NO_FEE."
+}

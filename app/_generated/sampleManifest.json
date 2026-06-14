@@ -1,0 +1,102 @@
+[
+  {
+    "id": "2510",
+    "label": "October 2025",
+    "period": "2025-10",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2510/shipments.csv",
+      "invoices": "/samples/2510/invoices.csv",
+      "denise": "/samples/2510/denise.csv"
+    }
+  },
+  {
+    "id": "2511",
+    "label": "November 2025",
+    "period": "2025-11",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2511/shipments.csv",
+      "invoices": "/samples/2511/invoices.csv",
+      "denise": "/samples/2511/denise.csv"
+    }
+  },
+  {
+    "id": "2512",
+    "label": "December 2025",
+    "period": "2025-12",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2512/shipments.csv",
+      "invoices": "/samples/2512/invoices.csv",
+      "denise": "/samples/2512/denise.csv"
+    }
+  },
+  {
+    "id": "2601",
+    "label": "January 2026",
+    "period": "2026-01",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2601/shipments.csv",
+      "invoices": "/samples/2601/invoices.csv",
+      "denise": "/samples/2601/denise.csv"
+    }
+  },
+  {
+    "id": "2602",
+    "label": "February 2026",
+    "period": "2026-02",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2602/shipments.csv",
+      "invoices": "/samples/2602/invoices.csv",
+      "denise": "/samples/2602/denise.csv"
+    }
+  },
+  {
+    "id": "2603",
+    "label": "March 2026",
+    "period": "2026-03",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices",
+    "files": {
+      "shipments": "/samples/2603/shipments.csv",
+      "invoices": "/samples/2603/invoices.csv",
+      "denise": "/samples/2603/denise.csv"
+    }
+  },
+  {
+    "id": "2604",
+    "label": "April 2026",
+    "period": "2026-04",
+    "status": "open",
+    "source": "real",
+    "badge": "",
+    "files": {
+      "shipments": "/samples/2604/shipments.csv"
+    }
+  },
+  {
+    "id": "2605",
+    "label": "May 2026",
+    "period": "2026-05",
+    "status": "simulated",
+    "source": "synthetic",
+    "badge": "Simulated period",
+    "files": {
+      "shipments": "/samples/2605/shipments.csv"
+    }
+  }
+]

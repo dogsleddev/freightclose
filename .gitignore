@@ -1,0 +1,66 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# The raw Numeric challenge data is NOT redistributed (CLAUDE.md #11). It stays
+# local; the build runs on the committed engine artifacts when data/ is absent
+# (see scripts/prebuild.mjs). Regenerate locally with `npm run engine`.
+/data/
+
+# NOTE: engine-generated artifacts (app/_generated/*, public/freightclose-*.csv,
+# public/samples/*, the portable archive) ARE committed so the public repo builds
+# and runs without the raw data. They are deterministic outputs of `npm run engine`.
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# debug
+npm-debug.log*
+
+# env
+.env*
+!.env.example
+
+# scratch
+__scratch_*
+
+# machine-local Claude Code settings
+.claude/settings.local.json
+
+# OneDrive sync-conflict copies (named <file>-<ComputerName>.<ext>)
+*-OmniDog.*
+*-DESKTOP-PCQJULQ.*
+
+.vercel
+
+# --- NOT for the public repo (kept local only) ---------------------------------
+# reference/ holds donor prototypes AND a copy of the raw challenge data + the
+# official Numeric brief; analysis/ holds internal data-forensics + strategy;
+# the root *.md/*.html below are internal build scaffolding. None of it is part
+# of the shippable build, and some is proprietary — so it stays out of the repo.
+/reference/
+/analysis/
+/.claude/
+/CLAUDE.md
+/CLAUDE.html
+/PRD.md
+/PRD.html
+/SCOPE.md
+/SCOPE.html
+/SOP.md
+/SOP.html
+/HANDOFF.md
+/HANDOFF.html
+/INITIAL-PROMPT.md
+/INITIAL-PROMPT.html

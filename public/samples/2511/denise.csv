@@ -1,0 +1,4 @@
+month,carrier,accrual_estimate,actual_invoiced,variance_dollars,variance_pct,notes
+November 2025,Peak Logistics,30246,31045.29,-799,-2.6,
+November 2025,Heartland Freight,31033,31900,-867,-2.7,
+November 2025,Coastal Express,23200,25800,-2600,-10.1,Holiday DTC spike

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2510",
+    "label": "October 2025",
+    "periodKey": "2025-10",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2511",
+    "label": "November 2025",
+    "periodKey": "2025-11",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2512",
+    "label": "December 2025",
+    "periodKey": "2025-12",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2601",
+    "label": "January 2026",
+    "periodKey": "2026-01",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2602",
+    "label": "February 2026",
+    "periodKey": "2026-02",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2603",
+    "label": "March 2026",
+    "periodKey": "2026-03",
+    "status": "closed",
+    "source": "real",
+    "badge": "Reconstructed from invoices"
+  },
+  {
+    "id": "2604",
+    "label": "April 2026",
+    "periodKey": "2026-04",
+    "status": "open",
+    "source": "real",
+    "badge": ""
+  },
+  {
+    "id": "2605",
+    "label": "May 2026",
+    "periodKey": "2026-05",
+    "status": "simulated",
+    "source": "synthetic",
+    "badge": "Simulated period"
+  }
+]

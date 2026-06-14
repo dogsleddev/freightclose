@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens as space-separated RGB channels (for Tailwind's
+   rgb(var(--x) / <alpha-value>) color format). Light = the original
+   parchment palette, byte-identical; .dark inverts the surface + warm-gray
+   ramp. One class on <html> flips the whole app. */
+:root {
+  color-scheme: light;
+  --surface: 255 255 255; /* card "white" */
+  --app-bg: 244 237 219; /* parchment */
+  --app-fg: 14 17 22; /* deep ink */
+  --slate-50: 250 246 236;
+  --slate-100: 243 236 217;
+  --slate-200: 230 220 193;
+  --slate-300: 211 198 163;
+  --slate-400: 169 156 126;
+  --slate-500: 124 114 89;
+  --slate-600: 92 83 64;
+  --slate-700: 66 58 43;
+  --slate-800: 41 36 26;
+  --slate-900: 14 17 22;
+  /* accent TEXT steps (used as standalone colored text, never as a background or
+     badge text). Light = original palette; .dark lightens them for contrast. */
+  --emerald-700: 35 120 91;
+  --amber-700: 194 84 49;
+  --red-700: 168 58 35;
+  --sky-700: 3 105 161;
+}
+
+.dark {
+  color-scheme: dark;
+  --surface: 22 26 33; /* ink-soft card */
+  --app-bg: 14 17 22; /* ink */
+  --app-fg: 230 232 236;
+  --slate-50: 32 37 45; /* subtle elevated bg */
+  --slate-100: 38 43 52;
+  --slate-200: 47 53 63; /* borders */
+  --slate-300: 58 65 78;
+  --slate-400: 107 114 128;
+  --slate-500: 154 160 168; /* muted text */
+  --slate-600: 184 188 196;
+  --slate-700: 210 213 219;
+  --slate-800: 230 232 236;
+  --slate-900: 242 243 245; /* primary text */
+  --emerald-700: 110 219 170; /* lightened for contrast on dark cards */
+  --amber-700: 240 160 110;
+  --red-700: 240 147 139;
+  --sky-700: 150 190 224;
+}
+
+html,
+body {
+  background: rgb(var(--app-bg));
+  color: rgb(var(--app-fg));
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Display headings in Fraunces (dogsled.dev display serif). */
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif), Georgia, ui-serif, serif;
+}
+
+/* Tabular, monospaced numerals — the ledger look. */
+.tnum {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.01em;
+}

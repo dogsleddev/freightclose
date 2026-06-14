@@ -1,0 +1,161 @@
+shipment_id,date,origin_city,origin_state,destination_city,destination_state,destination_zip,carrier,service_level,weight_lbs,units,residential,special_handling
+SHP-20001,2026-05-08,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,2869.13,44,FALSE,
+SHP-20002,2026-05-07,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Expedited,1998.45,29,FALSE,
+SHP-20003,2026-05-19,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Economy,723.08,99,TRUE,Residential Delivery
+SHP-20004,2026-05-14,Salt Lake City,UT,Great Falls,MT,59401,Peak Logistics,Expedited,3168.88,2,FALSE,
+SHP-20005,2026-05-17,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,937.57,21,FALSE,Liftgate
+SHP-20006,2026-05-03,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Expedited,356.7,181,FALSE,
+SHP-20007,2026-05-08,Denver,CO,Billings,MT,59101,Peak Logistics,Expedited,874.06,22,FALSE,
+SHP-20008,2026-05-06,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Expedited,509.51,14,FALSE,
+SHP-20009,2026-05-28,Salt Lake City,UT,Grand Junction,CO,81501,Peak Logistics,Standard,997.96,14,FALSE,Liftgate
+SHP-20010,2026-05-29,Denver,CO,Boise,ID,83701,Peak Logistics,Standard,3102.49,8,FALSE,
+SHP-20011,2026-05-15,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,304.16,118,FALSE,
+SHP-20012,2026-05-17,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,922.87,8,FALSE,
+SHP-20013,2026-05-04,Salt Lake City,UT,Grand Junction,CO,81501,Peak Logistics,Standard,1309.18,8,FALSE,
+SHP-20014,2026-05-11,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Expedited,81.63,41,FALSE,
+SHP-20015,2026-05-16,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,83.46,98,FALSE,
+SHP-20016,2026-05-25,Salt Lake City,UT,Great Falls,MT,59401,Peak Logistics,Standard,210.63,95,FALSE,
+SHP-20017,2026-05-31,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Expedited,1638.46,73,FALSE,
+SHP-20018,2026-05-09,Denver,CO,Great Falls,MT,59401,Peak Logistics,Expedited,210.75,3,FALSE,
+SHP-20019,2026-05-13,Denver,CO,Great Falls,MT,59401,Peak Logistics,Expedited,1754.85,107,FALSE,
+SHP-20020,2026-05-29,Denver,CO,Great Falls,MT,59401,Peak Logistics,Standard,349.16,3,FALSE,
+SHP-20021,2026-05-20,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,2986.21,108,FALSE,
+SHP-20022,2026-05-14,Salt Lake City,UT,Grand Junction,CO,81501,Peak Logistics,Expedited,1005.46,20,FALSE,
+SHP-20023,2026-05-28,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Economy,3326.32,186,FALSE,Liftgate
+SHP-20024,2026-05-03,Denver,CO,Ogden,UT,84401,Peak Logistics,Standard,363.05,73,FALSE,
+SHP-20025,2026-05-23,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Expedited,2090.45,204,FALSE,
+SHP-20026,2026-05-04,Denver,CO,Great Falls,MT,59401,Peak Logistics,Economy,374.03,5,FALSE,
+SHP-20027,2026-05-12,Denver,CO,Idaho Falls,ID,83401,Peak Logistics,Standard,185.82,7,FALSE,
+SHP-20028,2026-05-02,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Expedited,300.09,100,FALSE,
+SHP-20029,2026-05-16,Denver,CO,Colorado Springs,CO,80901,Peak Logistics,Standard,763.7,25,FALSE,
+SHP-20030,2026-05-03,Denver,CO,Idaho Falls,ID,83401,Peak Logistics,Expedited,366.52,7,FALSE,
+SHP-20031,2026-05-11,Salt Lake City,UT,Cheyenne,WY,82001,Peak Logistics,Expedited,3659.86,200,FALSE,
+SHP-20032,2026-05-15,Denver,CO,Billings,MT,59101,Peak Logistics,Standard,2931.75,8,FALSE,Liftgate
+SHP-20033,2026-05-22,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Expedited,2094.47,33,FALSE,
+SHP-20034,2026-05-31,Denver,CO,Boise,ID,83701,Peak Logistics,Expedited,1594.88,8,FALSE,
+SHP-20035,2026-05-10,Denver,CO,Idaho Falls,ID,83401,Peak Logistics,Standard,198.16,8,FALSE,
+SHP-20036,2026-05-20,Denver,CO,Fort Collins,CO,80521,Peak Logistics,Standard,3290.4,141,FALSE,
+SHP-20037,2026-05-30,Salt Lake City,UT,Missoula,MT,59801,Peak Logistics,Economy,292.46,105,FALSE,
+SHP-20038,2026-05-03,Denver,CO,Cheyenne,WY,82001,Peak Logistics,Standard,1967,34,FALSE,
+SHP-20039,2026-05-18,Denver,CO,Billings,MT,59101,Peak Logistics,Standard,80.91,103,FALSE,
+SHP-20040,2026-05-20,Denver,CO,Grand Junction,CO,81501,Peak Logistics,Standard,895.36,60,FALSE,
+SHP-20041,2026-05-19,Salt Lake City,UT,Springfield,MO,65801,Heartland Freight,Expedited,677.73,52,FALSE,
+SHP-20042,2026-05-01,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1722.98,50,FALSE,
+SHP-20043,2026-05-25,Denver,CO,Chicago,IL,60601,Heartland Freight,Standard,2144.97,78,FALSE,
+SHP-20044,2026-05-20,Denver,CO,Chicago,IL,60601,Heartland Freight,Standard,937.44,116,FALSE,
+SHP-20045,2026-05-18,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,295.48,86,FALSE,
+SHP-20046,2026-05-12,Denver,CO,Cedar Rapids,IA,52401,Heartland Freight,Expedited,409.53,20,FALSE,
+SHP-20047,2026-05-18,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,678.18,22,FALSE,
+SHP-20048,2026-05-19,Denver,CO,Rockford,IL,61101,Heartland Freight,Standard,1003.88,41,FALSE,
+SHP-20049,2026-05-23,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,2199.55,53,FALSE,
+SHP-20050,2026-05-02,Denver,CO,Iowa City,IA,52240,Heartland Freight,Standard,1399.49,38,FALSE,Appointment Delivery
+SHP-20051,2026-05-16,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,360.46,70,FALSE,Liftgate
+SHP-20052,2026-05-11,Denver,CO,Duluth,MN,55801,Heartland Freight,Expedited,2404.52,55,FALSE,
+SHP-20053,2026-05-23,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,383.42,111,FALSE,Inside Delivery
+SHP-20054,2026-05-09,Denver,CO,St. Paul,MN,55101,Heartland Freight,Standard,2229.68,83,FALSE,
+SHP-20055,2026-05-10,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,1799.99,98,FALSE,
+SHP-20056,2026-05-24,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,1562.27,64,FALSE,
+SHP-20057,2026-05-19,Denver,CO,Cedar Rapids,IA,52401,Heartland Freight,Expedited,801.74,20,FALSE,
+SHP-20058,2026-05-23,Denver,CO,St. Louis,MO,63101,Heartland Freight,Expedited,1442.61,48,FALSE,
+SHP-20059,2026-05-24,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,811.83,90,FALSE,
+SHP-20060,2026-05-17,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,848.08,66,FALSE,
+SHP-20061,2026-05-13,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,810.16,83,FALSE,
+SHP-20062,2026-05-08,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,1728.52,9,FALSE,
+SHP-20063,2026-05-07,Denver,CO,Rockford,IL,61101,Heartland Freight,Standard,1066.15,39,FALSE,Inside Delivery
+SHP-20064,2026-05-31,Denver,CO,Cedar Rapids,IA,52401,Heartland Freight,Expedited,2157.07,99,FALSE,
+SHP-20065,2026-05-14,Denver,CO,Cedar Rapids,IA,52401,Heartland Freight,Economy,2397.61,91,FALSE,
+SHP-20066,2026-05-17,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1153.8,100,FALSE,Liftgate
+SHP-20067,2026-05-07,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1982.88,82,FALSE,
+SHP-20068,2026-05-14,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1190.65,50,FALSE,Inside Delivery
+SHP-20069,2026-05-16,Denver,CO,Duluth,MN,55801,Heartland Freight,Expedited,816,60,FALSE,
+SHP-20070,2026-05-09,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,2340.24,30,FALSE,
+SHP-20071,2026-05-23,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1866.1,54,FALSE,
+SHP-20072,2026-05-20,Denver,CO,St. Louis,MO,63101,Heartland Freight,Standard,1491.79,112,FALSE,
+SHP-20073,2026-05-23,Denver,CO,Kansas City,MO,64101,Heartland Freight,Economy,1710.61,52,FALSE,
+SHP-20074,2026-05-26,Denver,CO,Chicago,IL,60601,Heartland Freight,Standard,1871.54,44,FALSE,
+SHP-20075,2026-05-10,Denver,CO,Chicago,IL,60601,Heartland Freight,Standard,1249.18,45,FALSE,
+SHP-20076,2026-05-25,Denver,CO,Kansas City,MO,64101,Heartland Freight,Economy,1966.57,59,FALSE,
+SHP-20077,2026-05-16,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,2389.7,21,FALSE,
+SHP-20078,2026-05-22,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1126.89,76,FALSE,
+SHP-20079,2026-05-29,Denver,CO,Chicago,IL,60601,Heartland Freight,Economy,2048.02,40,FALSE,
+SHP-20080,2026-05-20,Salt Lake City,UT,Springfield,MO,65801,Heartland Freight,Expedited,1767.22,48,FALSE,
+SHP-20081,2026-05-28,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,2152.24,44,FALSE,
+SHP-20082,2026-05-30,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,2123.9,46,FALSE,
+SHP-20083,2026-05-26,Denver,CO,Omaha,NE,68101,Heartland Freight,Standard,1570.94,103,FALSE,
+SHP-20084,2026-05-01,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,2261.16,29,FALSE,
+SHP-20085,2026-05-04,Denver,CO,Duluth,MN,55801,Heartland Freight,Expedited,914.46,29,FALSE,
+SHP-20086,2026-05-12,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,2125.85,118,FALSE,
+SHP-20087,2026-05-01,Denver,CO,Iowa City,IA,52240,Heartland Freight,Economy,2074.82,97,FALSE,
+SHP-20088,2026-05-19,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1771.99,33,FALSE,
+SHP-20089,2026-05-24,Denver,CO,Minneapolis,MN,55401,Heartland Freight,Standard,671.32,25,FALSE,
+SHP-20090,2026-05-10,Denver,CO,Iowa City,IA,52240,Heartland Freight,Express,2073.21,44,FALSE,
+SHP-20091,2026-05-18,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,2067.96,77,FALSE,
+SHP-20092,2026-05-04,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1044.16,96,FALSE,
+SHP-20093,2026-05-22,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,1084.21,36,FALSE,
+SHP-20094,2026-05-21,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,1045.68,32,FALSE,
+SHP-20095,2026-05-30,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,1856.47,71,FALSE,Liftgate
+SHP-20096,2026-05-24,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1348.57,36,FALSE,Liftgate
+SHP-20097,2026-05-02,Denver,CO,Milwaukee,WI,53201,Heartland Freight,Standard,2275.59,120,FALSE,
+SHP-20098,2026-05-10,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,1542.16,44,FALSE,
+SHP-20099,2026-05-25,Denver,CO,Chicago,IL,60601,Heartland Freight,Expedited,989.36,41,FALSE,
+SHP-20100,2026-05-28,Denver,CO,Des Moines,IA,50301,Heartland Freight,Standard,322.98,30,FALSE,
+SHP-20101,2026-05-26,Denver,CO,Wichita,KS,67201,Heartland Freight,Expedited,1655.65,123,FALSE,Liftgate
+SHP-20102,2026-05-21,Denver,CO,Norfolk,NE,68701,Heartland Freight,Economy,1833.9,102,FALSE,
+SHP-20103,2026-05-29,Denver,CO,Madison,WI,53701,Heartland Freight,Standard,959.29,29,FALSE,
+SHP-20104,2026-05-06,Denver,CO,Kansas City,MO,64101,Heartland Freight,Standard,2127.66,122,FALSE,
+SHP-20105,2026-05-07,Denver,CO,Kansas City,MO,64101,Heartland Freight,Expedited,2151.99,88,FALSE,Inside Delivery
+SHP-20106,2026-05-20,Denver,CO,Los Angeles,CA,90001,Coastal Express,Economy,39.76,70,FALSE,
+SHP-20107,2026-05-25,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,2138.39,41,FALSE,
+SHP-20108,2026-05-29,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,30.05,1,FALSE,
+SHP-20109,2026-05-01,Denver,CO,San Francisco,CA,94102,Coastal Express,Expedited,24.4,12,FALSE,
+SHP-20110,2026-05-02,Denver,CO,Portland,OR,97201,Coastal Express,Standard,2503.79,1,FALSE,
+SHP-20111,2026-05-02,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,34.49,1,TRUE,Residential Delivery
+SHP-20112,2026-05-23,Denver,CO,Long Beach,CA,90802,Coastal Express,Standard,2244.72,1,TRUE,Residential Delivery
+SHP-20113,2026-05-22,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,23.41,33,TRUE,Residential Delivery
+SHP-20114,2026-05-03,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,24.17,1,FALSE,
+SHP-20115,2026-05-19,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,27.17,63,FALSE,
+SHP-20116,2026-05-20,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,41.35,12,FALSE,
+SHP-20117,2026-05-05,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,28.04,1,FALSE,
+SHP-20118,2026-05-09,Denver,CO,San Diego,CA,92101,Coastal Express,Expedited,31.12,41,TRUE,Residential Delivery
+SHP-20119,2026-05-25,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,611.6,1,FALSE,
+SHP-20120,2026-05-06,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,29.64,2,FALSE,
+SHP-20121,2026-05-19,Denver,CO,Seattle,WA,98101,Coastal Express,Standard,1150.76,75,FALSE,
+SHP-20122,2026-05-24,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,29.59,41,FALSE,
+SHP-20123,2026-05-09,Denver,CO,Oakland,CA,94612,Coastal Express,Standard,15.75,1,TRUE,Residential Delivery
+SHP-20124,2026-05-11,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,34.1,62,FALSE,
+SHP-20125,2026-05-01,Denver,CO,Seattle,WA,98101,Coastal Express,Expedited,1296.85,65,FALSE,
+SHP-20126,2026-05-21,Denver,CO,Sacramento,CA,95814,Coastal Express,Standard,1221.01,47,TRUE,Residential Delivery
+SHP-20127,2026-05-20,Denver,CO,Portland,OR,97201,Coastal Express,Expedited,8.83,24,FALSE,
+SHP-20128,2026-05-07,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,40.9,1,TRUE,Residential Delivery
+SHP-20129,2026-05-12,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,1289.53,62,TRUE,Residential Delivery
+SHP-20130,2026-05-04,Denver,CO,Los Angeles,CA,90001,Coastal Express,Expedited,32.92,2,FALSE,
+SHP-20131,2026-05-26,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,571.45,1,TRUE,Residential Delivery
+SHP-20132,2026-05-12,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,22.17,1,TRUE,Residential Delivery
+SHP-20133,2026-05-30,Denver,CO,Bakersfield,CA,93301,Coastal Express,Expedited,1875.56,101,FALSE,
+SHP-20134,2026-05-11,Denver,CO,Portland,OR,97201,Coastal Express,Standard,2291.66,1,TRUE,Residential Delivery
+SHP-20135,2026-05-17,Denver,CO,Los Angeles,CA,90001,Coastal Express,Expedited,1311.18,1,TRUE,Liftgate
+SHP-20136,2026-05-17,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,15.62,1,TRUE,Residential Delivery
+SHP-20137,2026-05-05,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,26.4,1,FALSE,
+SHP-20138,2026-05-02,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,1496.03,1,TRUE,Residential Delivery
+SHP-20139,2026-05-13,Denver,CO,Los Angeles,CA,90001,Coastal Express,Expedited,25.51,1,FALSE,
+SHP-20140,2026-05-06,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,26.41,1,FALSE,
+SHP-20141,2026-05-13,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,11.7,109,FALSE,Liftgate
+SHP-20142,2026-05-12,Denver,CO,Bakersfield,CA,93301,Coastal Express,Expedited,1445.36,70,FALSE,
+SHP-20143,2026-05-21,Denver,CO,Los Angeles,CA,90001,Coastal Express,Expedited,17.02,85,TRUE,Residential Delivery
+SHP-20144,2026-05-30,Denver,CO,Portland,OR,97201,Coastal Express,Standard,10.35,146,FALSE,
+SHP-20145,2026-05-17,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,42.38,1,FALSE,Liftgate
+SHP-20146,2026-05-26,Denver,CO,Portland,OR,97201,Coastal Express,Expedited,28.76,1,FALSE,
+SHP-20147,2026-05-05,Denver,CO,San Diego,CA,92101,Coastal Express,Standard,1101.72,45,TRUE,Residential Delivery
+SHP-20148,2026-05-05,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,618.3,1,TRUE,Liftgate
+SHP-20149,2026-05-13,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,36.97,82,FALSE,
+SHP-20150,2026-05-26,Denver,CO,San Diego,CA,92101,Coastal Express,Economy,1398.95,42,TRUE,Residential Delivery
+SHP-20151,2026-05-22,Denver,CO,Los Angeles,CA,90001,Coastal Express,Economy,1516.75,23,FALSE,
+SHP-20152,2026-05-13,Denver,CO,San Francisco,CA,94102,Coastal Express,Expedited,40.67,13,FALSE,
+SHP-20153,2026-05-30,Denver,CO,San Francisco,CA,94102,Coastal Express,Standard,11.07,1,TRUE,Residential Delivery
+SHP-20154,2026-05-10,Denver,CO,Seattle,WA,98101,Coastal Express,Standard,1147.2,1,FALSE,
+SHP-20155,2026-05-18,Denver,CO,San Francisco,CA,94102,Coastal Express,Expedited,26.14,1,FALSE,Liftgate
+SHP-20156,2026-05-30,Denver,CO,Los Angeles,CA,90001,Coastal Express,Standard,35.5,1,TRUE,Liftgate
+SHP-20157,2026-05-09,Denver,CO,San Diego,CA,92101,Coastal Express,Economy,26.43,1,FALSE,
+SHP-20158,2026-05-27,Denver,CO,San Diego,CA,92101,Coastal Express,Economy,21.59,1,FALSE,Liftgate
+SHP-20159,2026-05-21,Denver,CO,Fresno,CA,93721,Coastal Express,Standard,15.11,1,TRUE,Residential Delivery
+SHP-20160,2026-05-01,Denver,CO,Santa Barbara,CA,93101,Coastal Express,Standard,37.2,1,TRUE,Residential Delivery

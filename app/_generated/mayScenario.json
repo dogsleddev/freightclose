@@ -1,0 +1,168 @@
+{
+  "periodId": "2605",
+  "periodKey": "2026-05",
+  "label": "May 2026",
+  "status": "simulated",
+  "source": "synthetic",
+  "badge": "Simulated period",
+  "shipmentCount": 160,
+  "calibratedPeakFuelPct": 0.14,
+  "scenarioPeakFuelPct": 0.19,
+  "variants": [
+    {
+      "key": "nochange",
+      "title": "No change (Peak fuel 14%)",
+      "isScenarioOverride": false,
+      "peakFuelPct": 0.14,
+      "engineTotal": 114169.44,
+      "actualTotal": 116758.91,
+      "varianceDollars": 2589.47,
+      "variancePct": 0.0222,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 56516.25,
+          "actual": 67700.34,
+          "varianceDollars": 11184.09,
+          "variancePct": 0.16519999999999999
+        },
+        {
+          "carrier": "heartland",
+          "engine": 35113.52,
+          "actual": 29854.68,
+          "varianceDollars": -5258.84,
+          "variancePct": -0.1761
+        },
+        {
+          "carrier": "coastal",
+          "engine": 22539.67,
+          "actual": 19203.89,
+          "varianceDollars": -3335.78,
+          "variancePct": -0.17370000000000002
+        }
+      ],
+      "trueUpJournal": {
+        "period": "May 2026 — No change (Peak fuel 14%)",
+        "date": "2026-05-31",
+        "framework": "Accrued liability — expense recognition (matching principle)",
+        "description": "True-up of the May 2026 — No change (Peak fuel 14%) freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+        "lines": [
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "debit",
+            "amount": 11184.09,
+            "memo": "May 2026 — No change (Peak fuel 14%) freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $11184.09)",
+            "carrier": "peak"
+          },
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "credit",
+            "amount": 5258.84,
+            "memo": "May 2026 — No change (Peak fuel 14%) freight true-up — Heartland Freight actual vs accrued estimate (over-accrued $5258.84)",
+            "carrier": "heartland"
+          },
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "credit",
+            "amount": 3335.78,
+            "memo": "May 2026 — No change (Peak fuel 14%) freight true-up — Coastal Express actual vs accrued estimate (over-accrued $3335.78)",
+            "carrier": "coastal"
+          },
+          {
+            "account": "21500",
+            "accountName": "Accrued Freight Liability",
+            "type": "credit",
+            "amount": 2589.47,
+            "memo": "May 2026 — No change (Peak fuel 14%) freight accrual true-up to actual invoiced (net under-accrual $2589.47)"
+          }
+        ],
+        "totalDebits": 11184.09,
+        "totalCredits": 11184.09,
+        "balanced": true
+      },
+      "divergenceNote": null
+    },
+    {
+      "key": "fuelspike",
+      "title": "Peak fuel surcharge spike (14% → 19%)",
+      "isScenarioOverride": true,
+      "peakFuelPct": 0.19,
+      "engineTotal": 116633.13,
+      "actualTotal": 119729.97,
+      "varianceDollars": 3096.84,
+      "variancePct": 0.0259,
+      "byCarrier": [
+        {
+          "carrier": "peak",
+          "engine": 58979.94,
+          "actual": 70671.4,
+          "varianceDollars": 11691.46,
+          "variancePct": 0.1654
+        },
+        {
+          "carrier": "heartland",
+          "engine": 35113.52,
+          "actual": 29854.68,
+          "varianceDollars": -5258.84,
+          "variancePct": -0.1761
+        },
+        {
+          "carrier": "coastal",
+          "engine": 22539.67,
+          "actual": 19203.89,
+          "varianceDollars": -3335.78,
+          "variancePct": -0.17370000000000002
+        }
+      ],
+      "trueUpJournal": {
+        "period": "May 2026 — Peak fuel surcharge spike (14% → 19%)",
+        "date": "2026-05-31",
+        "framework": "Accrued liability — expense recognition (matching principle)",
+        "description": "True-up of the May 2026 — Peak fuel surcharge spike (14% → 19%) freight accrual to actual invoiced (records the estimate-to-actual variance per carrier; net adjusts Accrued Freight Liability).",
+        "lines": [
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "debit",
+            "amount": 11691.46,
+            "memo": "May 2026 — Peak fuel surcharge spike (14% → 19%) freight true-up — Peak Logistics actual vs accrued estimate (under-accrued $11691.46)",
+            "carrier": "peak"
+          },
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "credit",
+            "amount": 5258.84,
+            "memo": "May 2026 — Peak fuel surcharge spike (14% → 19%) freight true-up — Heartland Freight actual vs accrued estimate (over-accrued $5258.84)",
+            "carrier": "heartland"
+          },
+          {
+            "account": "6200",
+            "accountName": "Freight & Delivery Expense",
+            "type": "credit",
+            "amount": 3335.78,
+            "memo": "May 2026 — Peak fuel surcharge spike (14% → 19%) freight true-up — Coastal Express actual vs accrued estimate (over-accrued $3335.78)",
+            "carrier": "coastal"
+          },
+          {
+            "account": "21500",
+            "accountName": "Accrued Freight Liability",
+            "type": "credit",
+            "amount": 3096.84,
+            "memo": "May 2026 — Peak fuel surcharge spike (14% → 19%) freight accrual true-up to actual invoiced (net under-accrual $3096.84)"
+          }
+        ],
+        "totalDebits": 11691.46,
+        "totalCredits": 11691.46,
+        "balanced": true
+      },
+      "divergenceNote": "Peak Logistics: fuel surcharge overridden to 19.0% for this scenario (announced forward rate change) vs 14.0% calibrated from invoice history (35.7% divergence). A trailing average cannot incorporate an announced change; the engine prices it and flags the override."
+    }
+  ],
+  "engineSpikeUplift": 2463.69,
+  "actualSpikeDelta": 2971.06,
+  "blindUnderAccrual": 5560.53
+}
