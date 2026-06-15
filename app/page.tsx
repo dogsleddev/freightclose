@@ -3,13 +3,8 @@ import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, Badge, PageHeader } from "@/components/ui";
 import { AskFreightClose } from "@/components/AskFreightClose";
 import { GuideLink } from "@/components/GuideLink";
-import {
-  fmtUsd,
-  fmtUsd2,
-  fmtSignedPct,
-  carrierName,
-  carrierAccent,
-} from "@/app/lib/format";
+import { CarrierAccrualTable } from "@/components/CarrierAccrualTable";
+import { fmtUsd, fmtUsd2, fmtSignedPct } from "@/app/lib/format";
 
 export default function Dashboard() {
   const r = accrualRun;
@@ -59,74 +54,7 @@ export default function Dashboard() {
 
       {/* by carrier */}
       <Card title="Accrual by carrier" subtitle="Every figure ties to shipment-level backup; carrier accrual = Σ shipment estimates + credit reserve.">
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-slate-200 text-left text-xs uppercase tracking-wide text-slate-500">
-                <th className="py-2 pr-4 font-medium">Carrier</th>
-                <th className="py-2 pr-4 text-right font-medium">Shipments</th>
-                <th className="py-2 pr-4 text-right font-medium">Base</th>
-                <th className="py-2 pr-4 text-right font-medium">Fuel</th>
-                <th className="py-2 pr-4 text-right font-medium">Accessorials</th>
-                <th className="py-2 pr-4 text-right font-medium">Reserve</th>
-                <th className="py-2 pr-4 text-right font-medium">Accrual</th>
-                <th className="py-2 pr-4 text-right font-medium">±1σ band</th>
-                <th className="py-2 pr-4 text-right font-medium">Flags</th>
-              </tr>
-            </thead>
-            <tbody className="tnum">
-              {r.carrierSummaries.map((cs) => {
-                const band = r.confidence.byCarrier.find((b) => b.carrier === cs.carrier)!;
-                return (
-                  <tr key={cs.carrier} className="border-b border-slate-100">
-                    <td className="py-2 pr-4">
-                      <Badge className={carrierAccent[cs.carrier]}>{carrierName[cs.carrier]}</Badge>
-                    </td>
-                    <td className="py-2 pr-4 text-right">{cs.shipmentCount}</td>
-                    <td className="py-2 pr-4 text-right">{fmtUsd(cs.base)}</td>
-                    <td className="py-2 pr-4 text-right">{fmtUsd(cs.fuel)}</td>
-                    <td className="py-2 pr-4 text-right">{fmtUsd(cs.accessorials + cs.residential)}</td>
-                    <td className="py-2 pr-4 text-right text-slate-500">{fmtUsd2(cs.creditReserve)}</td>
-                    <td className="py-2 pr-4 text-right font-semibold">{fmtUsd(cs.accrual)}</td>
-                    <td className="py-2 pr-4 text-right text-xs text-slate-500">
-                      {fmtUsd(band.low)}–{fmtUsd(band.high)}
-                    </td>
-                    <td className="py-2 pr-4 text-right">
-                      <Link href="/exceptions" className="text-slate-700 underline-offset-2 hover:text-ink hover:underline">
-                        {cs.exceptionCount}
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-              <tr className="font-semibold">
-                <td className="py-2 pr-4">Total</td>
-                <td className="py-2 pr-4 text-right">{r.inputs.uniqueShipments}</td>
-                <td className="py-2 pr-4 text-right" colSpan={3}></td>
-                <td className="py-2 pr-4 text-right text-slate-500">{fmtUsd2(r.totalCreditReserve)}</td>
-                <td className="py-2 pr-4 text-right">{fmtUsd(r.totalAccrual)}</td>
-                <td className="py-2 pr-4 text-right text-xs text-slate-500">
-                  {fmtUsd(r.confidence.total.low)}–{fmtUsd(r.confidence.total.high)}
-                </td>
-                <td className="py-2 pr-4 text-right">
-                  <Link href="/exceptions" className="text-slate-700 underline-offset-2 hover:text-ink hover:underline">
-                    {r.exceptions.length}
-                  </Link>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-3 text-xs leading-relaxed text-slate-500">
-          <b>Credit reserve</b> is a small credit (≈ {fmtSignedPct(r.totalCreditReserve / (r.totalAccrual - r.totalCreditReserve))}{" "}
-          of invoiced) booked every month from the carriers&apos; historical net-adjustment run-rate (post-billing
-          credits and corrections), so the accrual is not systematically higher than what the carriers eventually
-          invoice.{" "}
-          <Link href="/exceptions" className="underline-offset-2 hover:text-ink hover:underline">
-            Flags
-          </Link>{" "}
-          link to the exception register.
-        </p>
+        <CarrierAccrualTable />
       </Card>
 
       {/* calibration thesis — one-liner; full printed-vs-calibrated table lives on Rates */}

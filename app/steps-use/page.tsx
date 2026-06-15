@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { PageHeader, Card, Badge } from "@/components/ui";
-import { WorkflowDiagram } from "@/components/guide/diagrams";
 
 export const metadata = { title: "User Guide — Freight Close" };
 
@@ -150,12 +149,6 @@ const FAQ: { q: string; a: string }[] = [
   },
 ];
 
-const LEGEND = [
-  { c: "#21436b", t: "Review & validate (steps 1–5)" },
-  { c: "#15803d", t: "Book & lock (steps 6–7)" },
-  { c: "#c4622d", t: "Reconcile later (step 8)" },
-];
-
 // open the targeted <details> (and scroll to it) on deep-link / hash change
 const OPEN_HASH = `(function(){function o(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);if(!el)return;if(el.tagName==='DETAILS')el.open=true;el.scrollIntoView();}window.addEventListener('hashchange',o);setTimeout(o,60);})();`;
 
@@ -211,18 +204,6 @@ export default function UserGuidePage() {
         title="User guide"
         lead="Everything you need to run the month-end freight accrual — set up a new period, work the eight close steps, and reconcile when invoices arrive. Each step links straight to the tab that does the work; the calculation flow lives on Method & sensitivity and the reconciliation flow on Closed periods."
       />
-
-      <Card title="Complete workflow — overview" subtitle="Eight steps. Steps 1–7 happen at month-end close; step 8 happens when invoices arrive (typically 15–30 days later).">
-        <div className="mb-3 flex flex-wrap gap-4 text-xs text-slate-600">
-          {LEGEND.map((l) => (
-            <span key={l.t} className="inline-flex items-center gap-1.5">
-              <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: l.c }} />
-              {l.t}
-            </span>
-          ))}
-        </div>
-        <WorkflowDiagram />
-      </Card>
 
       {/* Setting up a new period */}
       <div id="setup" className="scroll-mt-20">

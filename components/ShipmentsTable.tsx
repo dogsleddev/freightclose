@@ -35,10 +35,15 @@ export function ShipmentsTable() {
 
   const flaggedCount = accrualRun.shipmentEstimates.filter((e) => e.exceptionIds.length > 0).length;
   const tabs: (Carrier | "all")[] = ["all", "peak", "heartland", "coastal"];
+  // Sticky column headers freeze just below the sticky filter row. The 106px
+  // offset = header 56px + the single-line filter row (~50px), so it assumes the
+  // desktop layout where the filter doesn't wrap (mobile is out of scope). bg +
+  // bottom shadow because border-collapse drops a sticky cell's own border.
+  const stickTh = "sticky top-[106px] z-20 bg-slate-50 shadow-[0_1px_0_0_rgb(var(--slate-200))]";
 
   return (
     <div>
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="sticky top-14 z-30 mb-4 flex flex-wrap items-center justify-between gap-3 bg-[rgb(var(--app-bg))] py-2">
         <div className="flex flex-wrap gap-1">
           {tabs.map((t) => (
             <button
@@ -68,20 +73,20 @@ export function ShipmentsTable() {
         />
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+      <div className="rounded-xl border border-slate-200 bg-white">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
-              <th className="py-2 pl-4 pr-2 font-medium">Shipment</th>
-              <th className="py-2 pr-3 font-medium">Carrier</th>
-              <th className="py-2 pr-3 font-medium">Destination</th>
-              <th className="py-2 pr-3 text-right font-medium">Wt</th>
-              <th className="py-2 pr-3 font-medium">Basis</th>
-              <th className="py-2 pr-3 text-right font-medium">Base</th>
-              <th className="py-2 pr-3 text-right font-medium">Fuel</th>
-              <th className="py-2 pr-3 text-right font-medium">Acc</th>
-              <th className="py-2 pr-3 text-right font-medium">Total</th>
-              <th className="py-2 pr-4 text-center font-medium">Flags</th>
+              <th className={`py-2 pl-4 pr-2 font-medium ${stickTh}`}>Shipment</th>
+              <th className={`py-2 pr-3 font-medium ${stickTh}`}>Carrier</th>
+              <th className={`py-2 pr-3 font-medium ${stickTh}`}>Destination</th>
+              <th className={`py-2 pr-3 text-right font-medium ${stickTh}`}>Wt</th>
+              <th className={`py-2 pr-3 font-medium ${stickTh}`}>Basis</th>
+              <th className={`py-2 pr-3 text-right font-medium ${stickTh}`}>Base</th>
+              <th className={`py-2 pr-3 text-right font-medium ${stickTh}`}>Fuel</th>
+              <th className={`py-2 pr-3 text-right font-medium ${stickTh}`}>Acc</th>
+              <th className={`py-2 pr-3 text-right font-medium ${stickTh}`}>Total</th>
+              <th className={`py-2 pr-4 text-center font-medium ${stickTh}`}>Flags</th>
             </tr>
           </thead>
           <tbody className="tnum">

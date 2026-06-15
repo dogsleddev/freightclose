@@ -1,8 +1,9 @@
-// User-guide workflow diagrams — three bespoke SVGs in the style of the Manus 2
-// reference: a color-coded workflow overview, a branching calculation data-flow
-// (driven by the real engine run), and a reconciliation decision-tree with
-// materiality traffic-lights. Each renders on a light inset panel so the literal
-// colors read in both light and dark themes (matching the map/flow diagrams).
+// Workflow diagrams — two bespoke SVGs in the style of the Manus 2 reference: a
+// branching calculation data-flow (driven by the real engine run) shown on
+// Method & sensitivity, and a reconciliation decision-tree with materiality
+// traffic-lights shown on Closed periods. Each renders on a light inset panel so
+// the literal colors read in both light and dark themes (matching the map/flow
+// diagrams).
 
 import { accrualRun } from "@/app/lib/accrual";
 import { fmtUsd, carrierName } from "@/app/lib/format";
@@ -10,8 +11,6 @@ import { fmtUsd, carrierName } from "@/app/lib/format";
 // palette (literal — light inset panel)
 const NAVY = "#21436b";
 const GREEN = "#15803d";
-const ORANGE = "#c4622d";
-const GRAYB = "#7c7a72";
 const CREAM = "#efe7d6";
 const RED = "#b91c1c";
 const AMBER = "#b45309";
@@ -81,47 +80,7 @@ function Panel({ vb, children, label }: { vb: string; children: React.ReactNode;
 }
 
 // ---------------------------------------------------------------------------
-// 1) Workflow overview — color-coded vertical steps
-// ---------------------------------------------------------------------------
-const WF_STEPS = [
-  { n: 1, t: "Review the accrual", tab: "Overview", phase: "review" },
-  { n: 2, t: "Drill carrier & shipment detail", tab: "Shipment backup", phase: "review" },
-  { n: 3, t: "Review exceptions & controls", tab: "Exceptions", phase: "review" },
-  { n: 4, t: "Validate accuracy", tab: "Accuracy", phase: "review" },
-  { n: 5, t: "Test sensitivity & rates", tab: "Method & sensitivity · Rates", phase: "review" },
-  { n: 6, t: "Book the journal entry", tab: "Journal entries", phase: "book" },
-  { n: 7, t: "Approve & lock the period", tab: "Approval", phase: "book" },
-  { n: 8, t: "Reconcile when invoices arrive", tab: "Closed periods", phase: "reconcile" },
-];
-const PHASE_FILL: Record<string, string> = { review: NAVY, book: GREEN, reconcile: ORANGE };
-
-export function WorkflowDiagram() {
-  const x = 70, w = 320, h = 50, gap = 24, top = 14;
-  const cx = x + w / 2;
-  const boxY = (i: number) => top + i * (h + gap);
-  const totalH = boxY(WF_STEPS.length - 1) + h + 14;
-  return (
-    <Panel vb={`0 0 460 ${totalH}`} label="Month-end close workflow — eight steps from review to reconciliation">
-      {WF_STEPS.map((s, i) => {
-        const y = boxY(i);
-        const fill = PHASE_FILL[s.phase];
-        return (
-          <g key={s.n}>
-            {i > 0 && <Down x={cx} y1={boxY(i - 1) + h} y2={y} />}
-            <rect x={x} y={y} width={w} height={h} rx={8} fill={fill} />
-            <circle cx={x + 26} cy={y + h / 2} r={13} fill="#ffffff" fillOpacity={0.16} />
-            <text x={x + 26} y={y + h / 2 + 4} textAnchor="middle" fontSize={13} fontWeight={700} fill="#fff">{s.n}</text>
-            <text x={x + 50} y={y + h / 2 - 3} fontSize={12.5} fontWeight={700} fill="#fff">{s.t}</text>
-            <text x={x + 50} y={y + h / 2 + 13} fontSize={10} fill="#ffffff" fillOpacity={0.8}>{s.tab}</text>
-          </g>
-        );
-      })}
-    </Panel>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// 2) Calculation data-flow — manifest → group → per-carrier pricing → total
+// 1) Calculation data-flow — manifest → group → per-carrier pricing → total
 // ---------------------------------------------------------------------------
 const sum = (c: "peak" | "heartland" | "coastal") => accrualRun.carrierSummaries.find((s) => s.carrier === c)!;
 const access = (s: ReturnType<typeof sum>) => s.accessorials + s.residential;
@@ -189,7 +148,7 @@ export function CalcFlowDiagram() {
 }
 
 // ---------------------------------------------------------------------------
-// 3) Reconciliation decision-tree — materiality traffic-lights
+// 2) Reconciliation decision-tree — materiality traffic-lights
 // ---------------------------------------------------------------------------
 export function ReconDiagram() {
   const cx = 360;

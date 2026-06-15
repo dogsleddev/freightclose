@@ -6,7 +6,7 @@
 // trace. Reviewers can pin a NOTE to any flag (its disposition) — persisted to
 // the browser store and carried into the approval audit trail.
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { accrualRun } from "@/app/lib/accrual";
 import { Card, Stat, Badge, PageHeader } from "@/components/ui";
 import { severityStyle, carrierName } from "@/app/lib/format";
@@ -100,6 +100,26 @@ function NoteEditor({ value, onSave, onClear }: { value: string; onSave: (t: str
   );
 }
 
+// Stat card that, when its severity has flags, becomes a button that jumps to
+// that section of the register below. Cards with a zero count stay inert. The
+// enabled card mirrors Card's styling directly on the <button> (rather than
+// nesting Card's <section> inside it) so the markup stays valid; aria-label
+// gives screen readers an explicit "Jump to …" action name.
+function StatNavCard({ enabled, label, onClick, children }: { enabled: boolean; label: string; onClick: () => void; children: ReactNode }) {
+  if (!enabled) return <Card className="h-full">{children}</Card>;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={`Jump to ${label}`}
+      title={`Jump to ${label}`}
+      className="block h-full w-full cursor-pointer rounded-xl border border-slate-200 bg-white text-left shadow-sm transition hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+    >
+      <div className="px-5 py-4">{children}</div>
+    </button>
+  );
+}
+
 export function ExceptionsView() {
   const r = accrualRun;
   const [selected, setSelected] = useState<string | null>(null);
@@ -147,6 +167,19 @@ export function ExceptionsView() {
     return sa - sb || b[1].length - a[1].length;
   });
 
+  // First group of each severity gets an anchor id so the stat cards can jump to it.
+  const firstGroupCodeBySev: Partial<Record<ExceptionSeverity, string>> = {};
+  for (const [code, items] of groups) {
+    const sev = items[0].severity;
+    if (!(sev in firstGroupCodeBySev)) firstGroupCodeBySev[sev] = code;
+  }
+  const firstGroupSev = groups[0]?.[1][0].severity;
+  const scrollToGroup = (id?: string) => {
+    const target = id ? document.getElementById(id) : null;
+    const fallback = firstGroupSev ? document.getElementById(`exc-${firstGroupSev}`) : null;
+    (target ?? fallback)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="space-y-6">
       <PageHeader
@@ -169,24 +202,29 @@ export function ExceptionsView() {
         {notedCount > 0 && <span className="ml-1">· {notedCount} flag{notedCount === 1 ? "" : "s"} annotated.</span>}
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-        <Card>
-          <Stat label="Total flags" value={r.exceptions.length} />
-        </Card>
-        <Card>
-          <Stat label="Errors" value={r.exceptionsBySeverity.error} accent={r.exceptionsBySeverity.error ? "text-red-700" : "text-emerald-700"} sub="High · blocking" />
-        </Card>
-        <Card>
-          <Stat label="Warnings" value={r.exceptionsBySeverity.warn} accent="text-amber-700" sub="Medium · review" />
-        </Card>
-        <Card>
-          <Stat label="Info" value={r.exceptionsBySeverity.info} accent="text-slate-700" sub="Low · informational" />
-        </Card>
+      {/* Summary cards freeze below the header; the title + banner above scroll away. */}
+      <div className="sticky top-14 z-30 bg-[rgb(var(--app-bg))] py-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+          <StatNavCard enabled={r.exceptions.length > 0} label="Total flags" onClick={() => scrollToGroup()}>
+            <Stat label="Total flags" value={r.exceptions.length} />
+          </StatNavCard>
+          <StatNavCard enabled={r.exceptionsBySeverity.error > 0} label="Errors" onClick={() => scrollToGroup("exc-error")}>
+            <Stat label="Errors" value={r.exceptionsBySeverity.error} accent={r.exceptionsBySeverity.error ? "text-red-700" : "text-emerald-700"} sub="High · blocking" />
+          </StatNavCard>
+          <StatNavCard enabled={r.exceptionsBySeverity.warn > 0} label="Warnings" onClick={() => scrollToGroup("exc-warn")}>
+            <Stat label="Warnings" value={r.exceptionsBySeverity.warn} accent="text-amber-700" sub="Medium · review" />
+          </StatNavCard>
+          <StatNavCard enabled={r.exceptionsBySeverity.info > 0} label="Info" onClick={() => scrollToGroup("exc-info")}>
+            <Stat label="Info" value={r.exceptionsBySeverity.info} accent="text-slate-700" sub="Low · informational" />
+          </StatNavCard>
+        </div>
       </div>
 
-      {groups.map(([code, items]) => (
+      {groups.map(([code, items]) => {
+        const isAnchor = firstGroupCodeBySev[items[0].severity] === code;
+        return (
+        <div key={code} id={isAnchor ? `exc-${items[0].severity}` : undefined} className={isAnchor ? "scroll-mt-48" : undefined}>
         <Card
-          key={code}
           title={code}
           subtitle={`${items.length} occurrence${items.length > 1 ? "s" : ""} · risk ${RISK[items[0].severity]}`}
           right={<Badge className={severityStyle[items[0].severity]}>{items[0].severity}</Badge>}
@@ -223,7 +261,9 @@ export function ExceptionsView() {
             })}
           </ul>
         </Card>
-      ))}
+        </div>
+        );
+      })}
 
       <DrillPane shipmentId={selected} onClose={() => setSelected(null)} />
     </div>
