@@ -37,8 +37,9 @@ npm run build    # production build (fully static)
 
 The app is a **static Next.js client-side app**: the deterministic TypeScript engine runs
 in your browser. Uploaded CSVs never leave the device, and saved closes/approvals persist
-to the browser's IndexedDB — no server, no database. (A storage interface is in place for a
-later Supabase swap.)
+to the browser's IndexedDB — no server, no database. (Persistence is isolated in a single
+module, `app/lib/closeStore.ts`, so it can be swapped for Supabase later without touching the
+engine.)
 
 ## Sample data
 
