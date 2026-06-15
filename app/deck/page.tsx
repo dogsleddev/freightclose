@@ -92,15 +92,25 @@ export default function DeckPage() {
     <div className="space-y-6">
       <PageHeader
         title="Slide deck"
-        lead="The standalone summary of Freight Close — the same deck used to bookend the Loom. Flip through it here, or download the PowerPoint."
+        lead="The standalone summary of Freight Close — the same deck that bookends the walkthrough. Watch the full walkthrough, flip through the slides here, or download the PowerPoint."
       />
-      <a
-        href="/freight-close-deck.pptx"
-        download
-        className="inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-parchment hover:bg-ink/85"
-      >
-        Download .pptx ↓
-      </a>
+      <div className="flex flex-wrap items-center gap-3">
+        <a
+          href="https://www.loom.com/share/8189ec40ebe341b7a003493986b7c840"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg bg-trail px-4 py-2 text-sm font-medium text-white hover:bg-trail-dark"
+        >
+          ▶ Watch the walkthrough
+        </a>
+        <a
+          href="/freight-close-deck.pptx"
+          download
+          className="inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-parchment hover:bg-ink/85"
+        >
+          Download .pptx ↓
+        </a>
+      </div>
 
       <div className="space-y-5">
         {/* 1 — Title */}
