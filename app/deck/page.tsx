@@ -104,6 +104,14 @@ export default function DeckPage() {
           ▶ Watch the walkthrough
         </a>
         <a
+          href="https://github.com/dogsleddev/freightclose"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+        >
+          View the repo ↗
+        </a>
+        <a
           href="/freight-close-deck.pptx"
           download
           className="inline-flex items-center gap-2 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-parchment hover:bg-ink/85"
