@@ -115,6 +115,13 @@ const GLYPHS: Record<string, ReactNode> = {
       <path d="M3 12h.01" />
     </>
   ),
+  deck: (
+    <>
+      <rect x="2.5" y="3" width="11" height="7.5" rx="1" />
+      <path d="M8 10.5V13" />
+      <path d="M5.5 13h5" />
+    </>
+  ),
   stepsPrepare: (
     <>
       <rect x="3.6" y="3.8" width="8.8" height="9.4" rx="1" />
