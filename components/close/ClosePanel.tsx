@@ -35,6 +35,7 @@ import { journalEntryToCsv } from "@/engine/je";
 import { shipmentBackupCsv } from "@/engine/close";
 import { monthMetaFromKey } from "@/engine/lookups";
 import { UploadBlock, readFile, type FilePick } from "./UploadBlock";
+import { ConnectionsDiagram } from "./ConnectionsDiagram";
 import type { AccrualRun, DeniseBaseline, InvoiceLine } from "@/engine/types";
 import type { RateConfigVersion } from "@/engine/configSet";
 
@@ -377,6 +378,19 @@ export function ClosePanel() {
 
       {/* result */}
       {result && <CloseResult run={result.run} qtdNote={result.qtdNote} mergeNote={result.mergeNote} />}
+
+      {/* data sources — today vs roadmap */}
+      <Card
+        title="Where the data comes from"
+        subtitle="Today the close runs on CSV exports (or a bundled sample); the roadmap is direct connectors into the same engine — no spreadsheets in the loop."
+      >
+        <ConnectionsDiagram />
+        <p className="mt-3 text-xs leading-relaxed text-slate-500">
+          The engine is the same either way — only the ingestion changes. CSV keeps the build zero-server and the data on your
+          device today; a direct <b>3PL / TMS</b> feed (shipments), <b>carrier-portal</b> pulls (rate cards + invoices), and a
+          <b> NetSuite</b> write-back (the journal entry) would make the monthly close fully hands-off.
+        </p>
+      </Card>
 
       {/* import templates */}
       <Card title="Import templates" subtitle="Download a headers-only CSV in the exact schema the engine expects.">
