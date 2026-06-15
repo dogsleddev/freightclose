@@ -12,9 +12,6 @@ export interface ShellRun {
   period: string;
   accrualUsd: string;
   tieOutsPass: boolean;
-  uniqueShipments: number;
-  invoiceLines: number;
-  framework: string;
 }
 
 export function AppShell({ run, children }: { run: ShellRun; children: React.ReactNode }) {
@@ -94,16 +91,6 @@ export function AppShell({ run, children }: { run: ShellRun; children: React.Rea
           <main className="min-w-0 flex-1 px-6 py-7">
             <div className="mx-auto max-w-6xl">{children}</div>
           </main>
-          <footer className="px-6 pb-10 pt-4 text-xs text-slate-500">
-            <div className="mx-auto max-w-6xl">
-              <p className="font-serif text-sm italic text-slate-600">Aim high. Pull hard. Leave tracks.</p>
-              <p className="mt-1">
-                Deterministic engine output · {run.uniqueShipments} shipments priced · {run.invoiceLines} invoice lines
-                calibrated · framework {run.framework} · figures derive only from bundled data + config ·{" "}
-                <span className="text-slate-400">freightclose.dogsled.dev</span>
-              </p>
-            </div>
-          </footer>
         </div>
       </div>
     </div>

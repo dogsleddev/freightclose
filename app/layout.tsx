@@ -25,9 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     period: r.period,
     accrualUsd: fmtUsd(r.totalAccrual),
     tieOutsPass: r.allTieOutsPassed,
-    uniqueShipments: r.inputs.uniqueShipments,
-    invoiceLines: r.inputs.invoiceLines,
-    framework: r.framework,
   };
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable}`} suppressHydrationWarning>
